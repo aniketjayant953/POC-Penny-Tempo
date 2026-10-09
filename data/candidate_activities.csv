@@ -1,0 +1,238 @@
+activity_id,candidate_id,activity_name,activity_type,scheduled_date,completion_date,status,duration_minutes
+ACT0001,CAN001,LinkedIn,live,2026-09-10,2026-09-10,attended,60
+ACT0002,CAN001,Career Planning,on_demand,2026-09-11,2026-09-14,attended,45
+ACT0003,CAN001,Personal Branding,live,2026-09-24,2026-09-24,attended,90
+ACT0004,CAN001,Resume/CV,on_demand,2026-09-25,2026-09-27,attended,30
+ACT0005,CAN001,Interviewing,live,2026-09-30,2026-09-30,attended,90
+ACT0006,CAN001,Networking,live,2026-10-08,,booked,60
+ACT0007,CAN002,LinkedIn,live,2026-09-03,2026-09-03,attended,60
+ACT0008,CAN002,Personal Branding,live,2026-09-03,2026-09-03,attended,90
+ACT0009,CAN002,Career Planning,live,2026-09-14,2026-09-14,attended,60
+ACT0010,CAN002,Interviewing,on_demand,2026-09-22,2026-09-22,attended,60
+ACT0011,CAN002,Networking,on_demand,2026-09-23,2026-09-23,attended,30
+ACT0012,CAN002,Resume/CV,on_demand,2026-09-27,2026-09-29,attended,30
+ACT0013,CAN002,LinkedIn,live,2026-10-21,,booked,60
+ACT0014,CAN003,Networking,live,2026-09-16,,not_attended,60
+ACT0015,CAN003,Networking,on_demand,2026-09-26,2026-09-26,attended,30
+ACT0016,CAN003,LinkedIn,live,2026-09-28,2026-09-28,attended,60
+ACT0017,CAN003,Resume/CV,live,2026-10-01,,cancelled,60
+ACT0018,CAN004,LinkedIn,live,2026-09-14,2026-09-14,attended,60
+ACT0019,CAN004,Career Planning,on_demand,2026-09-21,2026-09-23,attended,45
+ACT0020,CAN004,Networking,live,2026-09-21,2026-09-21,attended,60
+ACT0021,CAN004,Career Planning,on_demand,2026-09-28,,cancelled,45
+ACT0022,CAN004,Interviewing,live,2026-09-30,2026-09-30,attended,90
+ACT0023,CAN005,LinkedIn,on_demand,2026-09-14,2026-09-15,attended,45
+ACT0024,CAN005,Resume/CV,live,2026-09-22,2026-09-22,attended,60
+ACT0025,CAN005,Interviewing,live,2026-09-29,2026-09-29,attended,90
+ACT0026,CAN005,Personal Branding,live,2026-10-06,,booked,90
+ACT0027,CAN006,Networking,on_demand,2026-09-07,2026-09-09,attended,30
+ACT0028,CAN006,Career Planning,on_demand,2026-09-23,2026-09-25,attended,45
+ACT0029,CAN006,Personal Branding,live,2026-09-29,2026-09-29,attended,90
+ACT0030,CAN006,Personal Branding,live,2026-10-16,,booked,90
+ACT0031,CAN007,Resume/CV,on_demand,2026-09-11,2026-09-11,attended,30
+ACT0032,CAN007,Career Planning,on_demand,2026-09-13,2026-09-14,attended,45
+ACT0033,CAN007,Career Planning,live,2026-09-25,,cancelled,60
+ACT0034,CAN007,LinkedIn,on_demand,2026-09-25,2026-09-28,attended,45
+ACT0035,CAN007,Personal Branding,live,2026-10-12,,booked,90
+ACT0036,CAN008,Career Planning,live,2026-09-08,2026-09-08,attended,60
+ACT0037,CAN008,Personal Branding,live,2026-09-18,2026-09-18,attended,90
+ACT0038,CAN008,Networking,on_demand,2026-09-22,,not_attended,30
+ACT0039,CAN008,Interviewing,on_demand,2026-09-26,2026-09-26,attended,60
+ACT0040,CAN008,LinkedIn,on_demand,2026-09-27,2026-09-30,attended,45
+ACT0041,CAN008,Networking,live,2026-10-07,,booked,60
+ACT0042,CAN008,Resume/CV,live,2026-10-19,,booked,60
+ACT0043,CAN009,Career Planning,on_demand,2026-09-09,2026-09-09,attended,45
+ACT0044,CAN009,Networking,live,2026-09-11,2026-09-11,attended,60
+ACT0045,CAN009,Interviewing,on_demand,2026-09-26,2026-09-28,attended,60
+ACT0046,CAN010,Networking,on_demand,2026-09-04,2026-09-04,attended,30
+ACT0047,CAN010,Resume/CV,on_demand,2026-09-16,2026-09-19,attended,30
+ACT0048,CAN010,LinkedIn,on_demand,2026-09-28,2026-09-28,attended,45
+ACT0049,CAN010,Career Planning,on_demand,2026-10-07,,booked,45
+ACT0050,CAN011,LinkedIn,on_demand,2026-09-05,2026-09-05,attended,45
+ACT0051,CAN011,Interviewing,on_demand,2026-09-08,2026-09-08,attended,60
+ACT0052,CAN011,Resume/CV,on_demand,2026-09-08,,not_attended,30
+ACT0053,CAN011,Resume/CV,on_demand,2026-09-15,,not_attended,30
+ACT0054,CAN011,Networking,live,2026-09-18,,cancelled,60
+ACT0055,CAN011,Networking,live,2026-09-25,,not_attended,60
+ACT0056,CAN011,Resume/CV,live,2026-09-25,2026-09-25,attended,60
+ACT0057,CAN011,Resume/CV,live,2026-10-01,,not_attended,60
+ACT0058,CAN011,Personal Branding,live,2026-10-02,,booked,90
+ACT0059,CAN012,LinkedIn,live,2026-09-09,2026-09-09,attended,60
+ACT0060,CAN012,Career Planning,on_demand,2026-09-10,2026-09-12,attended,45
+ACT0061,CAN012,Resume/CV,on_demand,2026-09-21,2026-09-22,attended,30
+ACT0062,CAN012,Personal Branding,live,2026-09-24,2026-09-24,attended,90
+ACT0063,CAN012,Interviewing,live,2026-09-29,,not_attended,90
+ACT0064,CAN013,LinkedIn,on_demand,2026-09-06,2026-09-06,attended,45
+ACT0065,CAN013,Personal Branding,on_demand,2026-09-06,2026-09-06,attended,45
+ACT0066,CAN013,Career Planning,live,2026-09-07,2026-09-07,attended,60
+ACT0067,CAN013,Interviewing,live,2026-09-07,2026-09-07,attended,90
+ACT0068,CAN013,Networking,live,2026-09-21,,not_attended,60
+ACT0069,CAN013,Networking,on_demand,2026-10-02,,booked,30
+ACT0070,CAN014,Personal Branding,on_demand,2026-09-10,2026-09-13,attended,45
+ACT0071,CAN014,LinkedIn,on_demand,2026-09-12,,not_attended,45
+ACT0072,CAN014,LinkedIn,live,2026-09-17,,not_attended,60
+ACT0073,CAN014,Career Planning,on_demand,2026-09-20,2026-09-20,attended,45
+ACT0074,CAN014,LinkedIn,on_demand,2026-09-23,2026-09-26,attended,45
+ACT0075,CAN014,Resume/CV,live,2026-09-25,2026-09-25,attended,60
+ACT0076,CAN014,Interviewing,live,2026-09-29,2026-09-29,attended,90
+ACT0077,CAN015,Resume/CV,on_demand,2026-09-22,2026-09-22,attended,30
+ACT0078,CAN015,Interviewing,live,2026-09-24,2026-09-24,attended,90
+ACT0079,CAN015,Career Planning,on_demand,2026-09-25,2026-09-27,attended,45
+ACT0080,CAN015,Networking,live,2026-09-28,,not_attended,60
+ACT0081,CAN015,LinkedIn,live,2026-10-06,,booked,60
+ACT0082,CAN015,Networking,on_demand,2026-10-06,,booked,30
+ACT0083,CAN015,Networking,live,2026-10-06,,booked,60
+ACT0084,CAN016,Interviewing,live,2026-09-02,2026-09-02,attended,90
+ACT0085,CAN016,LinkedIn,live,2026-09-24,2026-09-24,attended,60
+ACT0086,CAN017,Networking,on_demand,2026-09-03,,cancelled,30
+ACT0087,CAN017,LinkedIn,on_demand,2026-09-06,,not_attended,45
+ACT0088,CAN017,LinkedIn,on_demand,2026-09-09,2026-09-12,attended,45
+ACT0089,CAN017,Networking,live,2026-09-15,,not_attended,60
+ACT0090,CAN017,Personal Branding,on_demand,2026-09-19,,not_attended,45
+ACT0091,CAN017,LinkedIn,on_demand,2026-09-22,2026-09-22,attended,45
+ACT0092,CAN017,Resume/CV,on_demand,2026-09-23,2026-09-26,attended,30
+ACT0093,CAN017,Personal Branding,on_demand,2026-10-04,,booked,45
+ACT0094,CAN018,Personal Branding,live,2026-09-03,,not_attended,90
+ACT0095,CAN018,Personal Branding,live,2026-09-10,2026-09-10,attended,90
+ACT0096,CAN018,Networking,live,2026-09-21,2026-09-21,attended,60
+ACT0097,CAN018,Resume/CV,live,2026-09-21,,not_attended,60
+ACT0098,CAN018,Interviewing,live,2026-10-07,,booked,90
+ACT0099,CAN018,Resume/CV,on_demand,2026-10-19,,booked,30
+ACT0100,CAN019,LinkedIn,live,2026-09-17,2026-09-17,attended,60
+ACT0101,CAN019,Resume/CV,on_demand,2026-09-19,,not_attended,30
+ACT0102,CAN019,Resume/CV,on_demand,2026-09-25,,not_attended,30
+ACT0103,CAN019,Interviewing,live,2026-09-28,2026-09-28,attended,90
+ACT0104,CAN019,Networking,live,2026-10-09,,booked,60
+ACT0105,CAN020,Career Planning,on_demand,2026-09-05,2026-09-06,attended,45
+ACT0106,CAN020,Resume/CV,on_demand,2026-09-07,2026-09-07,attended,30
+ACT0107,CAN020,Networking,live,2026-09-10,2026-09-10,attended,60
+ACT0108,CAN020,Personal Branding,live,2026-09-10,,not_attended,90
+ACT0109,CAN020,Personal Branding,live,2026-09-22,,cancelled,90
+ACT0110,CAN020,Interviewing,on_demand,2026-09-27,2026-09-27,attended,60
+ACT0111,CAN020,LinkedIn,live,2026-10-05,,booked,60
+ACT0112,CAN020,Personal Branding,live,2026-10-12,,booked,90
+ACT0113,CAN021,Personal Branding,live,2026-09-03,2026-09-03,attended,90
+ACT0114,CAN021,Networking,live,2026-09-07,,cancelled,60
+ACT0115,CAN021,LinkedIn,live,2026-09-14,,not_attended,60
+ACT0116,CAN021,Networking,live,2026-09-14,,cancelled,60
+ACT0117,CAN021,Career Planning,live,2026-09-15,,cancelled,60
+ACT0118,CAN021,Interviewing,live,2026-09-21,,not_attended,90
+ACT0119,CAN021,LinkedIn,live,2026-09-21,2026-09-21,attended,60
+ACT0120,CAN021,Networking,live,2026-09-21,,not_attended,60
+ACT0121,CAN021,Resume/CV,live,2026-09-28,,not_attended,60
+ACT0122,CAN021,Interviewing,live,2026-09-29,,not_attended,90
+ACT0123,CAN021,Career Planning,on_demand,2026-10-02,,booked,45
+ACT0124,CAN021,Interviewing,live,2026-10-06,,booked,90
+ACT0125,CAN021,Networking,on_demand,2026-10-07,,booked,30
+ACT0126,CAN022,Networking,on_demand,2026-09-11,2026-09-14,attended,30
+ACT0127,CAN022,Resume/CV,live,2026-09-14,2026-09-14,attended,60
+ACT0128,CAN022,Career Planning,on_demand,2026-09-21,,cancelled,45
+ACT0129,CAN022,Career Planning,live,2026-09-23,,cancelled,60
+ACT0130,CAN022,LinkedIn,live,2026-09-24,2026-09-24,attended,60
+ACT0131,CAN022,Personal Branding,on_demand,2026-09-25,,not_attended,45
+ACT0132,CAN022,Career Planning,live,2026-10-06,,booked,60
+ACT0133,CAN022,Personal Branding,live,2026-10-09,,booked,90
+ACT0134,CAN023,Personal Branding,on_demand,2026-09-19,2026-09-20,attended,45
+ACT0135,CAN023,Resume/CV,live,2026-09-21,,not_attended,60
+ACT0136,CAN023,Career Planning,live,2026-09-25,2026-09-25,attended,60
+ACT0137,CAN023,LinkedIn,on_demand,2026-09-28,,not_attended,45
+ACT0138,CAN023,Resume/CV,live,2026-09-28,2026-09-28,attended,60
+ACT0139,CAN023,Interviewing,on_demand,2026-09-30,,not_attended,60
+ACT0140,CAN023,Networking,on_demand,2026-09-30,,not_attended,30
+ACT0141,CAN023,LinkedIn,on_demand,2026-10-04,,booked,45
+ACT0142,CAN024,Interviewing,live,2026-09-03,2026-09-03,attended,90
+ACT0143,CAN024,Personal Branding,on_demand,2026-09-03,2026-09-04,attended,45
+ACT0144,CAN024,Networking,on_demand,2026-09-12,2026-09-14,attended,30
+ACT0145,CAN025,Resume/CV,on_demand,2026-09-03,2026-09-03,attended,30
+ACT0146,CAN025,Career Planning,on_demand,2026-09-08,2026-09-08,attended,45
+ACT0147,CAN025,Interviewing,live,2026-09-11,2026-09-11,attended,90
+ACT0148,CAN025,Networking,live,2026-09-21,2026-09-21,attended,60
+ACT0149,CAN025,Career Planning,on_demand,2026-10-09,,booked,45
+ACT0150,CAN026,Career Planning,on_demand,2026-09-04,2026-09-04,attended,45
+ACT0151,CAN026,Resume/CV,on_demand,2026-09-10,2026-09-12,attended,30
+ACT0152,CAN026,LinkedIn,live,2026-09-14,2026-09-14,attended,60
+ACT0153,CAN026,Career Planning,on_demand,2026-09-19,2026-09-19,attended,45
+ACT0154,CAN026,Personal Branding,on_demand,2026-09-19,2026-09-20,attended,45
+ACT0155,CAN026,Networking,live,2026-09-25,2026-09-25,attended,60
+ACT0156,CAN026,Resume/CV,live,2026-10-08,,booked,60
+ACT0157,CAN026,Interviewing,live,2026-10-09,,booked,90
+ACT0158,CAN027,LinkedIn,on_demand,2026-09-15,2026-09-17,attended,45
+ACT0159,CAN027,LinkedIn,live,2026-09-18,2026-09-18,attended,60
+ACT0160,CAN027,Career Planning,live,2026-09-28,2026-09-28,attended,60
+ACT0161,CAN028,Personal Branding,live,2026-09-21,2026-09-21,attended,90
+ACT0162,CAN029,Interviewing,on_demand,2026-09-16,2026-09-16,attended,60
+ACT0163,CAN029,LinkedIn,live,2026-09-28,2026-09-28,attended,60
+ACT0164,CAN029,Personal Branding,on_demand,2026-10-03,,booked,45
+ACT0165,CAN032,LinkedIn,live,2026-09-03,2026-09-03,attended,60
+ACT0166,CAN032,Personal Branding,live,2026-09-04,2026-09-04,attended,90
+ACT0167,CAN032,Resume/CV,on_demand,2026-09-15,2026-09-15,attended,30
+ACT0168,CAN032,Interviewing,on_demand,2026-09-19,2026-09-22,attended,60
+ACT0169,CAN032,Networking,live,2026-09-22,2026-09-22,attended,60
+ACT0170,CAN032,Career Planning,live,2026-09-29,2026-09-29,attended,60
+ACT0171,CAN033,LinkedIn,live,2026-08-11,2026-08-11,attended,60
+ACT0172,CAN033,Resume/CV,on_demand,2026-08-17,2026-08-19,attended,30
+ACT0173,CAN034,Personal Branding,on_demand,2026-09-18,,cancelled,45
+ACT0174,CAN034,Resume/CV,on_demand,2026-09-21,2026-09-21,attended,30
+ACT0175,CAN034,Personal Branding,on_demand,2026-09-23,2026-09-23,attended,45
+ACT0176,CAN034,Career Planning,live,2026-09-25,,cancelled,60
+ACT0177,CAN034,Career Planning,live,2026-10-06,,booked,60
+ACT0178,CAN035,LinkedIn,live,2026-09-21,,not_attended,60
+ACT0179,CAN035,Networking,live,2026-09-21,2026-09-21,attended,60
+ACT0180,CAN035,Resume/CV,on_demand,2026-09-22,2026-09-22,attended,30
+ACT0181,CAN035,Personal Branding,on_demand,2026-10-02,,booked,45
+ACT0182,CAN035,LinkedIn,on_demand,2026-10-07,,booked,45
+ACT0183,CAN036,Career Planning,live,2026-09-04,2026-09-04,attended,60
+ACT0184,CAN036,Networking,on_demand,2026-09-04,2026-09-04,attended,30
+ACT0185,CAN036,Resume/CV,live,2026-09-10,2026-09-10,attended,60
+ACT0186,CAN036,LinkedIn,on_demand,2026-09-20,2026-09-20,attended,45
+ACT0187,CAN036,Interviewing,on_demand,2026-10-02,,booked,60
+ACT0188,CAN036,LinkedIn,live,2026-10-07,,booked,60
+ACT0189,CAN037,Career Planning,live,2026-09-08,2026-09-08,attended,60
+ACT0190,CAN038,Interviewing,live,2026-09-07,,cancelled,90
+ACT0191,CAN038,Career Planning,live,2026-09-23,,not_attended,60
+ACT0192,CAN039,Career Planning,live,2026-09-16,,cancelled,60
+ACT0193,CAN039,Networking,live,2026-09-25,2026-09-25,attended,60
+ACT0194,CAN039,Resume/CV,live,2026-09-25,2026-09-25,attended,60
+ACT0195,CAN039,Career Planning,on_demand,2026-09-26,,cancelled,45
+ACT0196,CAN040,Networking,on_demand,2026-09-09,2026-09-09,attended,30
+ACT0197,CAN040,Interviewing,live,2026-09-17,2026-09-17,attended,90
+ACT0198,CAN040,Interviewing,live,2026-10-09,,booked,90
+ACT0199,CAN041,Personal Branding,on_demand,2026-09-12,2026-09-15,attended,45
+ACT0200,CAN041,Networking,on_demand,2026-09-26,2026-09-26,attended,30
+ACT0201,CAN041,Career Planning,on_demand,2026-09-28,,not_attended,45
+ACT0202,CAN041,Career Planning,live,2026-10-06,,booked,60
+ACT0203,CAN041,Interviewing,on_demand,2026-10-07,,booked,60
+ACT0204,CAN042,LinkedIn,on_demand,2026-10-03,,booked,45
+ACT0205,CAN042,Interviewing,on_demand,2026-10-06,,booked,60
+ACT0206,CAN043,Personal Branding,on_demand,2026-09-13,,not_attended,45
+ACT0207,CAN043,LinkedIn,on_demand,2026-09-21,2026-09-21,attended,45
+ACT0208,CAN043,Networking,live,2026-09-21,2026-09-21,attended,60
+ACT0209,CAN043,Personal Branding,live,2026-09-23,2026-09-23,attended,90
+ACT0210,CAN043,Resume/CV,on_demand,2026-10-04,,booked,30
+ACT0211,CAN044,Interviewing,live,2026-09-28,2026-09-28,attended,90
+ACT0212,CAN045,Resume/CV,live,2026-09-07,2026-09-07,attended,60
+ACT0213,CAN045,Networking,on_demand,2026-09-19,2026-09-22,attended,30
+ACT0214,CAN045,Personal Branding,live,2026-09-21,2026-09-21,attended,90
+ACT0215,CAN045,LinkedIn,live,2026-09-23,2026-09-23,attended,60
+ACT0216,CAN045,Career Planning,on_demand,2026-09-30,,not_attended,45
+ACT0217,CAN045,Networking,on_demand,2026-10-17,,booked,30
+ACT0218,CAN046,LinkedIn,live,2026-09-07,2026-09-07,attended,60
+ACT0219,CAN046,Personal Branding,on_demand,2026-09-09,2026-09-09,attended,45
+ACT0220,CAN046,Interviewing,on_demand,2026-09-10,2026-09-13,attended,60
+ACT0221,CAN046,Career Planning,on_demand,2026-09-18,2026-09-18,attended,45
+ACT0222,CAN046,Networking,live,2026-10-05,,booked,60
+ACT0223,CAN046,Networking,live,2026-10-05,,booked,60
+ACT0224,CAN046,Resume/CV,live,2026-10-08,,booked,60
+ACT0225,CAN047,Resume/CV,live,2026-09-18,2026-09-18,attended,60
+ACT0226,CAN047,LinkedIn,on_demand,2026-09-19,2026-09-22,attended,45
+ACT0227,CAN047,Resume/CV,on_demand,2026-09-19,2026-09-19,attended,30
+ACT0228,CAN047,Career Planning,live,2026-09-28,2026-09-28,attended,60
+ACT0229,CAN048,Networking,live,2026-09-07,,cancelled,60
+ACT0230,CAN048,Career Planning,on_demand,2026-09-14,,not_attended,45
+ACT0231,CAN048,Resume/CV,live,2026-09-14,2026-09-14,attended,60
+ACT0232,CAN048,Interviewing,live,2026-09-21,,not_attended,90
+ACT0233,CAN049,Interviewing,on_demand,2026-09-02,2026-09-03,attended,60
+ACT0234,CAN049,Resume/CV,on_demand,2026-09-03,2026-09-03,attended,30
+ACT0235,CAN049,LinkedIn,live,2026-09-11,2026-09-11,attended,60
+ACT0236,CAN049,Career Planning,live,2026-09-16,2026-09-16,attended,60
+ACT0237,CAN049,Personal Branding,on_demand,2026-09-22,2026-09-22,attended,45

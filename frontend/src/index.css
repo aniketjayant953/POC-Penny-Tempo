@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f6f7f9;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #eef0f4 25%, #f6f7f9 37%, #eef0f4 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 8px;
+}
+
+.skeleton-dark {
+  background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.14) 37%, rgba(255,255,255,0.06) 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 8px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 0.35s ease-out both; }
+
+/* ---------- FullCalendar: Outlook-style theme ---------- */
+.tempo-cal {
+  --fc-border-color: #e6e8ec;
+  --fc-page-bg-color: #ffffff;
+  --fc-neutral-bg-color: #f6f7f9;
+  --fc-today-bg-color: #f3f4ff;
+  --fc-now-indicator-color: #e5484d;
+  font-size: 12px;
+}
+.tempo-cal .fc-toolbar-title { font-size: 15px; font-weight: 600; color: #0f172a; }
+.tempo-cal .fc-button {
+  background: #fff; border: 1px solid #e2e5ea; color: #334155;
+  font-size: 12px; font-weight: 500; padding: 5px 10px; box-shadow: none; text-transform: none;
+}
+.tempo-cal .fc-button:hover { background: #f6f7f9; color: #0f172a; border-color: #d3d8df; }
+.tempo-cal .fc-button:focus { box-shadow: 0 0 0 2px #c7d2fe !important; }
+.tempo-cal .fc-button-primary:not(:disabled).fc-button-active,
+.tempo-cal .fc-button-primary:not(:disabled):active { background: #eef2ff; color: #4338ca; border-color: #c7d2fe; }
+.tempo-cal .fc-button-group > .fc-button { border-radius: 0; }
+.tempo-cal .fc-button-group > .fc-button:first-child { border-radius: 8px 0 0 8px; }
+.tempo-cal .fc-button-group > .fc-button:last-child { border-radius: 0 8px 8px 0; }
+.tempo-cal .fc-today-button { border-radius: 8px !important; margin-right: 8px; }
+.tempo-cal .fc-col-header-cell { padding: 10px 0; background: #fff; border-bottom: 1px solid #e6e8ec; }
+.tempo-cal .fc-col-header-cell-cushion { color: #475569; font-weight: 500; text-decoration: none; }
+.tempo-cal .tempo-day-head { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.tempo-cal .tempo-day-name { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #64748b; }
+.tempo-cal .tempo-day-num {
+  font-size: 18px; font-weight: 600; color: #0f172a; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center; border-radius: 999px;
+}
+.tempo-cal .fc-day-today .tempo-day-num { background: #4f46e5; color: #fff; }
+.tempo-cal .fc-day-today .tempo-day-name { color: #4f46e5; }
+.tempo-cal .fc-timegrid-slot { height: 2.6rem; border-color: #f0f1f4; }
+.tempo-cal .fc-timegrid-slot-minor { border-top-style: dotted; border-color: #f4f5f7; }
+.tempo-cal .fc-timegrid-slot-label-cushion { font-size: 11px; color: #94a3b8; font-weight: 500; padding-right: 8px; }
+.tempo-cal .fc-theme-standard td, .tempo-cal .fc-theme-standard th, .tempo-cal .fc-theme-standard .fc-scrollgrid { border-color: #e6e8ec; }
+.tempo-cal .fc-timegrid-event { border-radius: 6px; box-shadow: none; border: 0; background: transparent; }
+.tempo-cal .fc-event { cursor: pointer; }
+.tempo-cal .fc-timegrid-event-harness-inset .fc-timegrid-event { box-shadow: none; }
+.tempo-cal .fc-scrollgrid { border-radius: 12px; overflow: hidden; }
+.tempo-cal .fc-timegrid-now-indicator-line { border-width: 1.5px 0 0; }

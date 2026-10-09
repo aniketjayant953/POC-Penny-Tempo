@@ -1,0 +1,247 @@
+meeting_id,candidate_id,coach_id,meeting_date,action_text,matched_activity_name,expected_outcome,evidence,is_latest_meeting_for_candidate
+MTG0001,CAN016,CH003,2026-08-31,Attend Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0002,CAN017,CH004,2026-08-31,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0002,CAN017,CH004,2026-08-31,Reach out to three former colleagues for introductions,,not_trackable,action is not an activity,N
+MTG0003,CAN018,CH004,2026-08-31,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0004,CAN036,CH008,2026-08-31,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0005,CAN049,CH010,2026-08-31,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0005,CAN049,CH010,2026-08-31,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0006,CAN006,CH001,2026-09-01,Complete Networking session,Networking,completed,attended after meeting,N
+MTG0007,CAN022,CH005,2026-09-01,Complete Interviewing session,Interviewing,outstanding,no activity record after meeting,N
+MTG0008,CAN024,CH005,2026-09-01,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0008,CAN024,CH005,2026-09-01,Complete Networking session,Networking,completed,attended after meeting,N
+MTG0009,CAN048,CH010,2026-09-01,Attend Networking session,Networking,outstanding,booking cancelled,N
+MTG0010,CAN002,CH001,2026-09-02,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0010,CAN002,CH001,2026-09-02,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0011,CAN007,CH002,2026-09-02,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0011,CAN007,CH002,2026-09-02,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0012,CAN020,CH004,2026-09-02,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0012,CAN020,CH004,2026-09-02,Apply to at least five suitable roles,,not_trackable,action is not an activity,N
+MTG0013,CAN026,CH006,2026-09-02,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0013,CAN026,CH006,2026-09-02,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0014,CAN032,CH007,2026-09-02,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0014,CAN032,CH007,2026-09-02,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0015,CAN041,CH009,2026-09-02,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0015,CAN041,CH009,2026-09-02,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0016,CAN046,CH010,2026-09-02,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0016,CAN046,CH010,2026-09-02,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0017,CAN021,CH004,2026-09-03,Attend Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0018,CAN043,CH009,2026-09-03,Attend Career Planning session,Career Planning,outstanding,no activity record after meeting,N
+MTG0019,CAN045,CH010,2026-09-03,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0020,CAN050,CH010,2026-09-03,Attend LinkedIn session,LinkedIn,outstanding,no activity record after meeting,N
+MTG0021,CAN001,CH001,2026-09-04,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0021,CAN001,CH001,2026-09-04,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0022,CAN009,CH002,2026-09-04,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0023,CAN012,CH002,2026-09-04,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0023,CAN012,CH002,2026-09-04,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0024,CAN013,CH003,2026-09-04,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0024,CAN013,CH003,2026-09-04,Attend Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0025,CAN025,CH006,2026-09-04,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0025,CAN025,CH006,2026-09-04,Attend Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0025,CAN025,CH006,2026-09-04,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0026,CAN035,CH008,2026-09-04,Complete Networking session,Networking,completed,attended after meeting,N
+MTG0027,CAN011,CH002,2026-09-07,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0027,CAN011,CH002,2026-09-07,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0028,CAN014,CH003,2026-09-07,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0028,CAN014,CH003,2026-09-07,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0029,CAN016,CH003,2026-09-07,Attend Personal Branding session,Personal Branding,outstanding,no activity record after meeting,Y
+MTG0030,CAN017,CH004,2026-09-07,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0030,CAN017,CH004,2026-09-07,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",N
+MTG0030,CAN017,CH004,2026-09-07,Share target company list with coach,,not_trackable,action is not an activity,N
+MTG0031,CAN018,CH004,2026-09-07,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0031,CAN018,CH004,2026-09-07,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0032,CAN037,CH008,2026-09-07,Attend Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0032,CAN037,CH008,2026-09-07,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0033,CAN049,CH010,2026-09-07,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0034,CAN022,CH005,2026-09-08,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0034,CAN022,CH005,2026-09-08,Complete Networking session,Networking,completed,attended after meeting,N
+MTG0034,CAN022,CH005,2026-09-08,Apply to at least five suitable roles,,not_trackable,action is not an activity,N
+MTG0035,CAN023,CH005,2026-09-08,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0035,CAN023,CH005,2026-09-08,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0036,CAN048,CH010,2026-09-08,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0036,CAN048,CH010,2026-09-08,Complete Career Planning session,Career Planning,outstanding,booked but not_attended,N
+MTG0037,CAN002,CH001,2026-09-09,Attend Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0038,CAN020,CH004,2026-09-09,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",N
+MTG0038,CAN020,CH004,2026-09-09,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0039,CAN032,CH007,2026-09-09,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0040,CAN040,CH008,2026-09-09,Attend Interviewing session,Interviewing,completed,attended after meeting,Y
+MTG0041,CAN004,CH001,2026-09-10,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0041,CAN004,CH001,2026-09-10,Complete Resume/CV session,Resume/CV,outstanding,no activity record after meeting,N
+MTG0041,CAN004,CH001,2026-09-10,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0042,CAN021,CH004,2026-09-10,Attend Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0042,CAN021,CH004,2026-09-10,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0042,CAN021,CH004,2026-09-10,Attend Career Planning session,Career Planning,pending,"booked, scheduled after today",N
+MTG0043,CAN027,CH006,2026-09-10,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0043,CAN027,CH006,2026-09-10,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0044,CAN043,CH009,2026-09-10,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0045,CAN045,CH010,2026-09-10,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0045,CAN045,CH010,2026-09-10,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0046,CAN050,CH010,2026-09-10,Complete Career Planning session,Career Planning,outstanding,no activity record after meeting,N
+MTG0046,CAN050,CH010,2026-09-10,Complete Resume/CV session,Resume/CV,outstanding,no activity record after meeting,N
+MTG0047,CAN005,CH001,2026-09-11,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0047,CAN005,CH001,2026-09-11,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0048,CAN008,CH002,2026-09-11,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0048,CAN008,CH002,2026-09-11,Complete Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0049,CAN013,CH003,2026-09-11,Attend Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0050,CAN047,CH010,2026-09-11,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0050,CAN047,CH010,2026-09-11,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0051,CAN011,CH002,2026-09-14,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0051,CAN011,CH002,2026-09-14,Attend Networking session,Networking,outstanding,booked but not_attended,N
+MTG0052,CAN014,CH003,2026-09-14,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0052,CAN014,CH003,2026-09-14,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0053,CAN017,CH004,2026-09-14,Complete Personal Branding session,Personal Branding,pending,"booked, scheduled after today",N
+MTG0053,CAN017,CH004,2026-09-14,Attend Networking session,Networking,outstanding,booked but not_attended,N
+MTG0054,CAN018,CH004,2026-09-14,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0054,CAN018,CH004,2026-09-14,Attend Resume/CV session,Resume/CV,pending,"booked, scheduled after today",N
+MTG0055,CAN034,CH007,2026-09-14,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0055,CAN034,CH007,2026-09-14,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0056,CAN036,CH008,2026-09-14,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0057,CAN039,CH008,2026-09-14,Attend Career Planning session,Career Planning,outstanding,booking cancelled,N
+MTG0057,CAN039,CH008,2026-09-14,Attend Interviewing session,Interviewing,outstanding,no activity record after meeting,N
+MTG0058,CAN049,CH010,2026-09-14,Attend Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0059,CAN003,CH001,2026-09-15,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0060,CAN006,CH001,2026-09-15,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0061,CAN010,CH002,2026-09-15,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0062,CAN015,CH003,2026-09-15,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0062,CAN015,CH003,2026-09-15,Send updated CV draft to coach,,not_trackable,action is not an activity,N
+MTG0063,CAN019,CH004,2026-09-15,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0063,CAN019,CH004,2026-09-15,Complete Resume/CV session,Resume/CV,outstanding,booked but not_attended,N
+MTG0064,CAN022,CH005,2026-09-15,Complete Career Planning session,Career Planning,pending,"booked, scheduled after today",N
+MTG0064,CAN022,CH005,2026-09-15,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",N
+MTG0064,CAN022,CH005,2026-09-15,Apply to at least five suitable roles,,not_trackable,action is not an activity,N
+MTG0065,CAN023,CH005,2026-09-15,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0065,CAN023,CH005,2026-09-15,Complete LinkedIn session,LinkedIn,pending,"booked, scheduled after today",N
+MTG0065,CAN023,CH005,2026-09-15,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0066,CAN024,CH005,2026-09-15,No further actions - programme completed,,not_trackable,action is not an activity,Y
+MTG0067,CAN029,CH006,2026-09-15,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0068,CAN048,CH010,2026-09-15,Attend Interviewing session,Interviewing,outstanding,booked but not_attended,Y
+MTG0068,CAN048,CH010,2026-09-15,Share target company list with coach,,not_trackable,action is not an activity,Y
+MTG0069,CAN002,CH001,2026-09-16,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0069,CAN002,CH001,2026-09-16,Reach out to three former colleagues for introductions,,not_trackable,action is not an activity,N
+MTG0070,CAN007,CH002,2026-09-16,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0071,CAN020,CH004,2026-09-16,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",N
+MTG0071,CAN020,CH004,2026-09-16,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0072,CAN026,CH006,2026-09-16,Complete Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0073,CAN032,CH007,2026-09-16,Complete Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0073,CAN032,CH007,2026-09-16,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0074,CAN046,CH010,2026-09-16,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0075,CAN004,CH001,2026-09-17,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0075,CAN004,CH001,2026-09-17,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0076,CAN021,CH004,2026-09-17,Attend Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0076,CAN021,CH004,2026-09-17,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0076,CAN021,CH004,2026-09-17,Attend Interviewing session,Interviewing,pending,"booked, scheduled after today",N
+MTG0077,CAN043,CH009,2026-09-17,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0077,CAN043,CH009,2026-09-17,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0077,CAN043,CH009,2026-09-17,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0077,CAN043,CH009,2026-09-17,Share target company list with coach,,not_trackable,action is not an activity,N
+MTG0078,CAN045,CH010,2026-09-17,Attend Personal Branding session,Personal Branding,completed,attended after meeting,N
+MTG0078,CAN045,CH010,2026-09-17,Complete Networking session,Networking,completed,attended after meeting,N
+MTG0078,CAN045,CH010,2026-09-17,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0078,CAN045,CH010,2026-09-17,Apply to at least five suitable roles,,not_trackable,action is not an activity,N
+MTG0079,CAN050,CH010,2026-09-17,Attend Resume/CV session,Resume/CV,outstanding,no activity record after meeting,Y
+MTG0079,CAN050,CH010,2026-09-17,Complete Networking session,Networking,outstanding,no activity record after meeting,Y
+MTG0079,CAN050,CH010,2026-09-17,Attend Career Planning session,Career Planning,outstanding,no activity record after meeting,Y
+MTG0080,CAN001,CH001,2026-09-18,Attend Personal Branding session,Personal Branding,completed,attended after meeting,Y
+MTG0080,CAN001,CH001,2026-09-18,Complete Resume/CV session,Resume/CV,completed,attended after meeting,Y
+MTG0081,CAN009,CH002,2026-09-18,Complete Interviewing session,Interviewing,completed,attended after meeting,Y
+MTG0082,CAN012,CH002,2026-09-18,Attend Interviewing session,Interviewing,outstanding,booked but not_attended,Y
+MTG0082,CAN012,CH002,2026-09-18,Complete Resume/CV session,Resume/CV,completed,attended after meeting,Y
+MTG0083,CAN013,CH003,2026-09-18,Attend Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0083,CAN013,CH003,2026-09-18,Attend Resume/CV session,Resume/CV,outstanding,no activity record after meeting,N
+MTG0083,CAN013,CH003,2026-09-18,Apply to at least five suitable roles,,not_trackable,action is not an activity,N
+MTG0084,CAN025,CH006,2026-09-18,Attend Networking session,Networking,completed,attended after meeting,Y
+MTG0085,CAN028,CH006,2026-09-18,Attend Personal Branding session,Personal Branding,completed,attended after meeting,Y
+MTG0086,CAN035,CH008,2026-09-18,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0086,CAN035,CH008,2026-09-18,Attend LinkedIn session,LinkedIn,pending,"booked, scheduled after today",N
+MTG0086,CAN035,CH008,2026-09-18,Reach out to three former colleagues for introductions,,not_trackable,action is not an activity,N
+MTG0087,CAN038,CH008,2026-09-18,Attend Career Planning session,Career Planning,outstanding,booked but not_attended,Y
+MTG0088,CAN011,CH002,2026-09-21,Attend Networking session,Networking,outstanding,booked but not_attended,Y
+MTG0088,CAN011,CH002,2026-09-21,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0088,CAN011,CH002,2026-09-21,Attend Resume/CV session,Resume/CV,completed,attended after meeting,Y
+MTG0089,CAN014,CH003,2026-09-21,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0089,CAN014,CH003,2026-09-21,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0090,CAN017,CH004,2026-09-21,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0091,CAN033,CH007,2026-09-21,Attend Interviewing session,Interviewing,outstanding,no activity record after meeting,Y
+MTG0091,CAN033,CH007,2026-09-21,Attend Personal Branding session,Personal Branding,outstanding,no activity record after meeting,Y
+MTG0092,CAN037,CH008,2026-09-21,Complete Networking session,Networking,outstanding,no activity record after meeting,Y
+MTG0093,CAN039,CH008,2026-09-21,Complete Career Planning session,Career Planning,outstanding,booking cancelled,N
+MTG0093,CAN039,CH008,2026-09-21,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0093,CAN039,CH008,2026-09-21,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0093,CAN039,CH008,2026-09-21,Apply to at least five suitable roles,,not_trackable,action is not an activity,N
+MTG0094,CAN049,CH010,2026-09-21,No further actions - programme completed,,not_trackable,action is not an activity,Y
+MTG0095,CAN003,CH001,2026-09-22,Complete Networking session,Networking,completed,attended after meeting,N
+MTG0095,CAN003,CH001,2026-09-22,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0096,CAN010,CH002,2026-09-22,Complete LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0097,CAN015,CH003,2026-09-22,Attend Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0097,CAN015,CH003,2026-09-22,Complete Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0097,CAN015,CH003,2026-09-22,Attend Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0098,CAN019,CH004,2026-09-22,Complete Resume/CV session,Resume/CV,outstanding,booked but not_attended,N
+MTG0098,CAN019,CH004,2026-09-22,Attend Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0099,CAN022,CH005,2026-09-22,Attend Career Planning session,Career Planning,pending,"booked, scheduled after today",N
+MTG0099,CAN022,CH005,2026-09-22,Complete Personal Branding session,Personal Branding,pending,"booked, scheduled after today",N
+MTG0099,CAN022,CH005,2026-09-22,Attend LinkedIn session,LinkedIn,completed,attended after meeting,N
+MTG0100,CAN023,CH005,2026-09-22,Attend Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0100,CAN023,CH005,2026-09-22,Complete LinkedIn session,LinkedIn,pending,"booked, scheduled after today",N
+MTG0100,CAN023,CH005,2026-09-22,Attend Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0101,CAN002,CH001,2026-09-23,Complete Resume/CV session,Resume/CV,completed,attended after meeting,N
+MTG0101,CAN002,CH001,2026-09-23,Reach out to three former colleagues for introductions,,not_trackable,action is not an activity,N
+MTG0102,CAN026,CH006,2026-09-23,Attend Networking session,Networking,completed,attended after meeting,N
+MTG0103,CAN031,CH006,2026-09-23,Attend LinkedIn session,LinkedIn,outstanding,no activity record after meeting,Y
+MTG0103,CAN031,CH006,2026-09-23,Complete Resume/CV session,Resume/CV,outstanding,no activity record after meeting,Y
+MTG0104,CAN032,CH007,2026-09-23,Attend Career Planning session,Career Planning,completed,attended after meeting,N
+MTG0104,CAN032,CH007,2026-09-23,Reach out to three former colleagues for introductions,,not_trackable,action is not an activity,N
+MTG0105,CAN041,CH009,2026-09-23,Complete Career Planning session,Career Planning,pending,"booked, scheduled after today",N
+MTG0106,CAN004,CH001,2026-09-24,Attend Interviewing session,Interviewing,completed,attended after meeting,N
+MTG0107,CAN021,CH004,2026-09-24,Attend Interviewing session,Interviewing,pending,"booked, scheduled after today",N
+MTG0107,CAN021,CH004,2026-09-24,Complete Networking session,Networking,pending,"booked, scheduled after today",N
+MTG0107,CAN021,CH004,2026-09-24,Attend Resume/CV session,Resume/CV,outstanding,booked but not_attended,N
+MTG0108,CAN027,CH006,2026-09-24,Attend Career Planning session,Career Planning,completed,attended after meeting,Y
+MTG0109,CAN043,CH009,2026-09-24,Complete Resume/CV session,Resume/CV,pending,"booked, scheduled after today",Y
+MTG0110,CAN045,CH010,2026-09-24,Complete Career Planning session,Career Planning,outstanding,booked but not_attended,Y
+MTG0111,CAN005,CH001,2026-09-25,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0111,CAN005,CH001,2026-09-25,Attend Interviewing session,Interviewing,completed,attended after meeting,Y
+MTG0112,CAN008,CH002,2026-09-25,Attend Networking session,Networking,pending,"booked, scheduled after today",Y
+MTG0112,CAN008,CH002,2026-09-25,Complete LinkedIn session,LinkedIn,completed,attended after meeting,Y
+MTG0113,CAN013,CH003,2026-09-25,Complete Networking session,Networking,pending,"booked, scheduled after today",Y
+MTG0113,CAN013,CH003,2026-09-25,Send updated CV draft to coach,,not_trackable,action is not an activity,Y
+MTG0114,CAN035,CH008,2026-09-25,Complete LinkedIn session,LinkedIn,pending,"booked, scheduled after today",Y
+MTG0114,CAN035,CH008,2026-09-25,Complete Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0115,CAN047,CH010,2026-09-25,Attend Career Planning session,Career Planning,completed,attended after meeting,Y
+MTG0116,CAN014,CH003,2026-09-28,Attend Interviewing session,Interviewing,completed,attended after meeting,Y
+MTG0117,CAN017,CH004,2026-09-28,Complete Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0118,CAN018,CH004,2026-09-28,Attend Interviewing session,Interviewing,pending,"booked, scheduled after today",Y
+MTG0119,CAN034,CH007,2026-09-28,Attend Career Planning session,Career Planning,pending,"booked, scheduled after today",Y
+MTG0120,CAN036,CH008,2026-09-28,Complete Interviewing session,Interviewing,pending,"booked, scheduled after today",Y
+MTG0121,CAN039,CH008,2026-09-28,Complete Interviewing session,Interviewing,outstanding,no activity record after meeting,Y
+MTG0122,CAN003,CH001,2026-09-29,Attend Resume/CV session,Resume/CV,outstanding,booking cancelled,Y
+MTG0123,CAN006,CH001,2026-09-29,Complete Interviewing session,Interviewing,outstanding,no activity record after meeting,Y
+MTG0123,CAN006,CH001,2026-09-29,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0124,CAN010,CH002,2026-09-29,Complete Career Planning session,Career Planning,pending,"booked, scheduled after today",Y
+MTG0124,CAN010,CH002,2026-09-29,Send updated CV draft to coach,,not_trackable,action is not an activity,Y
+MTG0125,CAN015,CH003,2026-09-29,Attend Networking session,Networking,pending,"booked, scheduled after today",Y
+MTG0125,CAN015,CH003,2026-09-29,Attend LinkedIn session,LinkedIn,pending,"booked, scheduled after today",Y
+MTG0126,CAN019,CH004,2026-09-29,Complete Resume/CV session,Resume/CV,outstanding,no activity record after meeting,Y
+MTG0126,CAN019,CH004,2026-09-29,Attend Networking session,Networking,pending,"booked, scheduled after today",Y
+MTG0127,CAN022,CH005,2026-09-29,Attend Career Planning session,Career Planning,pending,"booked, scheduled after today",Y
+MTG0127,CAN022,CH005,2026-09-29,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0128,CAN023,CH005,2026-09-29,Complete LinkedIn session,LinkedIn,pending,"booked, scheduled after today",Y
+MTG0128,CAN023,CH005,2026-09-29,Complete Interviewing session,Interviewing,outstanding,booked but not_attended,Y
+MTG0128,CAN023,CH005,2026-09-29,Complete Networking session,Networking,outstanding,booked but not_attended,Y
+MTG0129,CAN029,CH006,2026-09-29,Complete Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0130,CAN002,CH001,2026-09-30,Reach out to three former colleagues for introductions,,not_trackable,action is not an activity,Y
+MTG0131,CAN007,CH002,2026-09-30,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0132,CAN020,CH004,2026-09-30,Attend Personal Branding session,Personal Branding,pending,"booked, scheduled after today",Y
+MTG0132,CAN020,CH004,2026-09-30,Attend LinkedIn session,LinkedIn,pending,"booked, scheduled after today",Y
+MTG0133,CAN026,CH006,2026-09-30,Attend Interviewing session,Interviewing,pending,"booked, scheduled after today",Y
+MTG0134,CAN032,CH007,2026-09-30,Apply to at least five suitable roles,,not_trackable,action is not an activity,Y
+MTG0135,CAN041,CH009,2026-09-30,Attend Career Planning session,Career Planning,pending,"booked, scheduled after today",Y
+MTG0135,CAN041,CH009,2026-09-30,Complete Interviewing session,Interviewing,pending,"booked, scheduled after today",Y
+MTG0135,CAN041,CH009,2026-09-30,Send updated CV draft to coach,,not_trackable,action is not an activity,Y
+MTG0136,CAN046,CH010,2026-09-30,Attend Resume/CV session,Resume/CV,pending,"booked, scheduled after today",Y
+MTG0136,CAN046,CH010,2026-09-30,Attend Networking session,Networking,pending,"booked, scheduled after today",Y
+MTG0137,CAN004,CH001,2026-10-01,Attend Personal Branding session,Personal Branding,outstanding,no activity record after meeting,Y
+MTG0138,CAN021,CH004,2026-10-01,Attend Interviewing session,Interviewing,pending,"booked, scheduled after today",Y
+MTG0138,CAN021,CH004,2026-10-01,Complete Networking session,Networking,pending,"booked, scheduled after today",Y
+MTG0138,CAN021,CH004,2026-10-01,Complete Career Planning session,Career Planning,pending,"booked, scheduled after today",Y
+MTG0139,CAN042,CH009,2026-10-01,Complete LinkedIn session,LinkedIn,pending,"booked, scheduled after today",Y
+MTG0139,CAN042,CH009,2026-10-01,Complete Interviewing session,Interviewing,pending,"booked, scheduled after today",Y

@@ -1,0 +1,51 @@
+candidate_id,candidate_name,programme,status,assigned_coach_id
+CAN001,Rachel Thornton,Executive Outplacement,Active,CH001
+CAN002,Imran Qureshi,Professional Outplacement,Active,CH001
+CAN003,Laura Fitzgerald,Professional Outplacement,Active,CH001
+CAN004,Callum Murray,Career Transition Essentials,Active,CH001
+CAN005,Nadia Hussain,Executive Outplacement,Active,CH001
+CAN006,Peter Abbott,Professional Outplacement,Active,CH001
+CAN007,Grace Adeyemi,Professional Outplacement,Active,CH002
+CAN008,Stuart Hale,Executive Outplacement,Active,CH002
+CAN009,Mei Ling Tan,Professional Outplacement,Active,CH002
+CAN010,Oliver Banks,Career Transition Essentials,Active,CH002
+CAN011,Fatima Zahra,Professional Outplacement,Active,CH002
+CAN012,Thomas Whitfield,Professional Outplacement,Active,CH002
+CAN013,Anjali Deshmukh,Professional Outplacement,Active,CH003
+CAN014,Rohan Kapoor,Executive Outplacement,Active,CH003
+CAN015,Sneha Iyer,Career Transition Essentials,Active,CH003
+CAN016,Vikram Patil,Professional Outplacement,On Hold,CH003
+CAN017,David Nguyen,Professional Outplacement,Active,CH004
+CAN018,Jessica Alvarez,Professional Outplacement,Active,CH004
+CAN019,Brian O'Connell,Executive Outplacement,Active,CH004
+CAN020,Samantha Price,Career Transition Essentials,Active,CH004
+CAN021,Terrence Holloway,Professional Outplacement,Active,CH004
+CAN022,Chiara Bianchi,Professional Outplacement,Active,CH005
+CAN023,Luca Moretti,Executive Outplacement,Active,CH005
+CAN024,Giulia Ferrari,Career Transition Essentials,Completed,CH005
+CAN025,Kevin Marshall,Professional Outplacement,Active,CH006
+CAN026,Dana Whitaker,Executive Outplacement,Active,CH006
+CAN027,Robert Jennings,Professional Outplacement,Active,CH006
+CAN028,Alicia Moreno,Career Transition Essentials,Active,CH006
+CAN029,Jamal Washington,Professional Outplacement,Active,CH006
+CAN030,Neil Hartman,Professional Outplacement,Onboarding,CH006
+CAN031,Olivia Brennan,Professional Outplacement,Active,CH006
+CAN032,Erik Johansson,Professional Outplacement,Active,CH007
+CAN033,Karin Berg,Executive Outplacement,Active,CH007
+CAN034,Anders Nilsson,Career Transition Essentials,Active,CH007
+CAN035,Aarav Reddy,Professional Outplacement,Active,CH008
+CAN036,Kavya Menon,Professional Outplacement,Active,CH008
+CAN037,Siddharth Rao,Executive Outplacement,Active,CH008
+CAN038,Pooja Bhatt,Career Transition Essentials,Active,CH008
+CAN039,Manish Agarwal,Professional Outplacement,Active,CH008
+CAN040,Divya Krishnan,Professional Outplacement,Active,CH008
+CAN041,Lachlan Burke,Professional Outplacement,Active,CH009
+CAN042,Isla McKenzie,Executive Outplacement,Active,CH009
+CAN043,Ethan Walsh,Career Transition Essentials,Active,CH009
+CAN044,Zoe Campbell,Professional Outplacement,Active,CH009
+CAN045,Agnieszka Zielinska,Professional Outplacement,Active,CH010
+CAN046,Pawel Nowak,Professional Outplacement,Active,CH010
+CAN047,Marta Wisniewska,Executive Outplacement,Active,CH010
+CAN048,Jakub Mazur,Professional Outplacement,Withdrawn,CH010
+CAN049,Katarzyna Lewandowska,Career Transition Essentials,Completed,CH010
+CAN050,Michal Dabrowski,Professional Outplacement,On Hold,CH010
