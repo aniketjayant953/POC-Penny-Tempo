@@ -12,7 +12,10 @@ body,
 
 body {
   margin: 0;
-  background: #f6f7f9;
+  background:
+    radial-gradient(1200px 500px at 0% -10%, rgba(79, 70, 229, 0.08), transparent 55%),
+    radial-gradient(900px 400px at 100% 0%, rgba(14, 165, 233, 0.06), transparent 50%),
+    #eef1f6;
   color: #0f172a;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -84,3 +87,13 @@ body {
 .tempo-cal .fc-timegrid-event-harness-inset .fc-timegrid-event { box-shadow: none; }
 .tempo-cal .fc-scrollgrid { border-radius: 12px; overflow: hidden; }
 .tempo-cal .fc-timegrid-now-indicator-line { border-width: 1.5px 0 0; }
+.tempo-cal .fc-timegrid-event { margin: 1px 4px 0; }
+.tempo-cal .fc-event:hover { filter: brightness(0.98); }
+
+.tempo-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}

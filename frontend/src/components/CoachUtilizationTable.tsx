@@ -1,4 +1,5 @@
 import { Table2 } from 'lucide-react'
+import { initials } from '../lib/format'
 import type { CoachUtilizationRow } from '../types'
 import { StatusBadge } from './StatusBadge'
 import { EmptyState, SectionCard } from './ui'
@@ -42,8 +43,12 @@ export function CoachUtilizationTable({ rows, thresholds }: Props) {
               {rows.map((r) => (
                 <tr key={r.coach_id} className="hover:bg-slate-50/60">
                   <td className="whitespace-nowrap px-4 py-3">
-                    <p className="font-medium text-slate-900">{r.coach_name}</p>
-                    <p className="text-xs text-slate-400">{r.coach_id}</p>
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-50 text-[11px] font-semibold text-indigo-700">
+                        {initials(r.coach_name)}
+                      </span>
+                      <p className="font-medium text-slate-900">{r.coach_name}</p>
+                    </div>
                   </td>
                   <td className="px-4 py-3 text-right tabular-nums text-slate-600">{r.working_hours_per_week}</td>
                   <td className="px-4 py-3 text-right tabular-nums text-slate-600">

@@ -65,14 +65,23 @@ export function CalendarView({ bookings, loading, today, selectedId, onSelect }:
   }
 
   return (
-    <Card className="tempo-cal overflow-hidden p-4">
-      <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-1 px-1 text-[11px] text-slate-500">
-        {Object.entries(PROGRAMME_STYLES).map(([name, s]) => (
-          <span key={name} className="inline-flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-sm" style={{ background: s.border }} />
-            {name}
-          </span>
-        ))}
+    <Card className="tempo-cal overflow-hidden p-4 md:p-5">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
+        <div>
+          <p className="text-sm font-semibold text-slate-900">Week calendar</p>
+          <p className="text-xs text-slate-500">Click a session to open AI candidate preparation</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-1.5">
+          {Object.entries(PROGRAMME_STYLES).map(([name, s]) => (
+            <span
+              key={name}
+              className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600 ring-1 ring-slate-200/80"
+            >
+              <span className="h-2 w-2 rounded-full" style={{ background: s.border }} />
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
       <FullCalendar
         plugins={[timeGridPlugin, interactionPlugin]}

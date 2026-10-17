@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { Card, Skeleton } from './ui'
+import { Card, Skeleton, cn } from './ui'
 
 interface KpiCardProps {
   label: string
@@ -7,14 +7,24 @@ interface KpiCardProps {
   hint?: string
   icon: LucideIcon
   loading?: boolean
+  tone?: 'indigo' | 'sky' | 'violet' | 'emerald'
 }
 
-export function KpiCard({ label, value, hint, icon: Icon, loading }: KpiCardProps) {
+const TONE = {
+  indigo: { wrap: 'from-indigo-50 to-white', icon: 'bg-indigo-600 text-white', bar: 'bg-indigo-500' },
+  sky: { wrap: 'from-sky-50 to-white', icon: 'bg-sky-600 text-white', bar: 'bg-sky-500' },
+  violet: { wrap: 'from-violet-50 to-white', icon: 'bg-violet-600 text-white', bar: 'bg-violet-500' },
+  emerald: { wrap: 'from-emerald-50 to-white', icon: 'bg-emerald-600 text-white', bar: 'bg-emerald-500' },
+}
+
+export function KpiCard({ label, value, hint, icon: Icon, loading, tone = 'indigo' }: KpiCardProps) {
+  const t = TONE[tone]
   return (
-    <Card className="p-5">
-      <div className="flex items-start justify-between">
-        <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</p>
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+    <Card className={cn('relative overflow-hidden bg-gradient-to-br p-5', t.wrap)}>
+      <span className={cn('absolute inset-y-0 left-0 w-1', t.bar)} />
+      <div className="flex items-start justify-between pl-1">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{label}</p>
+        <span className={cn('flex h-9 w-9 items-center justify-center rounded-xl shadow-sm', t.icon)}>
           <Icon size={16} />
         </span>
       </div>
@@ -25,8 +35,8 @@ export function KpiCard({ label, value, hint, icon: Icon, loading }: KpiCardProp
         </>
       ) : (
         <>
-          <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">{value ?? '—'}</p>
-          {hint && <p className="mt-1 truncate text-xs text-slate-500">{hint}</p>}
+          <p className="mt-2 pl-1 text-3xl font-semibold tracking-tight text-slate-900">{value ?? '—'}</p>
+          {hint && <p className="mt-1 truncate pl-1 text-xs text-slate-500">{hint}</p>}
         </>
       )}
     </Card>

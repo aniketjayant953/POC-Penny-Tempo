@@ -120,7 +120,10 @@ def _resolve_session(data: dict, candidate_id: str, booking_id: Optional[str]) -
 # --------------------------------------------------------------------------- #
 @app.get("/api/health")
 def health() -> dict[str, Any]:
-    return {"status": "ok", "data_source": "excel", "today": date.today().isoformat()}
+    from db import try_load_from_db
+
+    source = "mysql" if try_load_from_db() is not None else "excel"
+    return {"status": "ok", "data_source": source, "database": "aicoaching", "today": date.today().isoformat()}
 
 
 @app.get("/api/coaches")

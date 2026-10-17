@@ -27,7 +27,7 @@ export function CalendarEvent({ booking, selected }: CalendarEventProps) {
   const compact = booking.duration_minutes <= 30
   return (
     <div
-      className="h-full w-full overflow-hidden rounded-md px-2 py-1 transition-shadow"
+      className="h-full w-full overflow-hidden rounded-lg px-2 py-1 transition-all"
       style={{
         background: selected ? s.border : s.bg,
         borderLeft: `3px solid ${s.border}`,

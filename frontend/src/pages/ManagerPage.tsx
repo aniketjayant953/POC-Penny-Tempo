@@ -13,7 +13,7 @@ import { api } from '../services/api'
 import type { UtilizationFilters } from '../types'
 
 const selectCls =
-  'rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100'
+  'tempo-select rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100'
 
 export default function ManagerPage() {
   const [coachId, setCoachId] = useState('')
@@ -99,7 +99,7 @@ export default function ManagerPage() {
   return (
     <>
       <TopHeader title="Manager Intelligence" subtitle="Coach utilization and capacity overview" actions={filtersUi} />
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 p-8">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 p-5 md:p-8">
         {error ? (
           <Card>
             <ErrorState
@@ -122,13 +122,14 @@ export default function ManagerPage() {
         ) : (
           <>
             <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              <KpiCard label="Total Coaches" icon={Users} value={kpis?.total_coaches} hint="In current selection" loading={loading} />
+              <KpiCard label="Total Coaches" icon={Users} value={kpis?.total_coaches} hint="In current selection" loading={loading} tone="indigo" />
               <KpiCard
                 label="Average Utilization"
                 icon={Gauge}
                 value={kpis ? `${kpis.average_utilization_pct.toFixed(1)}%` : undefined}
                 hint={kpis && kpis.total_coaches > 1 ? `High ${kpis.highest.utilization_pct}% · Low ${kpis.lowest.utilization_pct}%` : 'Eligible hours ÷ working hours'}
                 loading={loading}
+                tone="violet"
               />
               <KpiCard
                 label="Total Coaching Hours"
@@ -136,6 +137,7 @@ export default function ManagerPage() {
                 value={kpis ? kpis.total_coaching_hours.toLocaleString() : undefined}
                 hint="Completed + booked sessions"
                 loading={loading}
+                tone="sky"
               />
               <KpiCard
                 label="Cancelled Sessions"
@@ -143,6 +145,7 @@ export default function ManagerPage() {
                 value={kpis?.cancelled_sessions}
                 hint="Excluded from utilization"
                 loading={loading}
+                tone="emerald"
               />
             </section>
 

@@ -8,7 +8,7 @@ export function cn(...parts: (string | false | null | undefined)[]): string {
 
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
   return (
-    <div className={cn('rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)]', className)}>
+    <div className={cn('rounded-2xl border border-slate-200/70 bg-white/90 shadow-[0_8px_24px_rgba(15,23,42,0.04)] backdrop-blur-sm', className)}>
       {children}
     </div>
   )

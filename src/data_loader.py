@@ -11,9 +11,15 @@ EXCEL_PATH = DATA_DIR / "Candidate-coach sample data_v2.0.xlsx"
 def load_data():
     """Load all Tempo POC datasets.
 
-    Prefers the Candidate-coach Excel workbook when it is present so the
-    coach UI stays aligned with that source file.
+    Prefers MySQL (`aicoaching`) when tables are populated, then the Excel
+    workbook, then CSV files.
     """
+
+    from db import try_load_from_db
+
+    db_data = try_load_from_db()
+    if db_data is not None:
+        return db_data
 
     if EXCEL_PATH.exists():
         from excel_import import data_from_excel

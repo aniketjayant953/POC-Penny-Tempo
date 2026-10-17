@@ -1,4 +1,4 @@
-import { CalendarCheck, CalendarClock, Sparkles } from 'lucide-react'
+import { CalendarCheck, CalendarClock, Sparkles, UserRound } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { CalendarView } from '../components/CalendarView'
@@ -43,12 +43,13 @@ export default function CoachPage() {
   const kpis = bookings.data?.kpis
 
   const coachSelect = (
-    <label className="flex items-center gap-2 text-xs text-slate-500">
+    <label className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-500 shadow-sm">
+      <UserRound size={15} className="text-indigo-500" />
       Coach
       <select
         value={coachId}
         onChange={(e) => setCoachId(e.target.value)}
-        className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100"
+        className="tempo-select min-w-[180px] border-0 bg-transparent py-1 text-sm font-semibold text-slate-800 outline-none"
       >
         {(coaches.data ?? []).map((c) => (
           <option key={c.coach_id} value={c.coach_id}>
@@ -67,7 +68,7 @@ export default function CoachPage() {
         subtitle="Your upcoming sessions and AI-powered candidate preparation."
         actions={coachSelect}
       />
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 p-8">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 p-5 md:p-8">
         {coaches.error || bookings.error ? (
           <Card>
             <ErrorState
@@ -92,6 +93,7 @@ export default function CoachPage() {
                 value={kpis?.upcoming_sessions}
                 hint="Booked 1:1 sessions on this coach calendar"
                 loading={bookings.loading || coaches.loading}
+                tone="indigo"
               />
               <KpiCard
                 label="Today's Sessions"
@@ -99,6 +101,7 @@ export default function CoachPage() {
                 value={kpis?.todays_sessions}
                 hint="Scheduled for today"
                 loading={bookings.loading || coaches.loading}
+                tone="sky"
               />
               <KpiCard
                 label="Preparation Ready"
@@ -106,6 +109,7 @@ export default function CoachPage() {
                 value={kpis?.preparation_ready}
                 hint="Sessions Tempo can prepare from notes and activities"
                 loading={bookings.loading || coaches.loading}
+                tone="violet"
               />
             </section>
 

@@ -5,7 +5,7 @@ import ManagerPage from './pages/ManagerPage'
 
 export default function App() {
   return (
-    <div className="flex h-full">
+    <div className="flex h-full flex-col md:flex-row">
       <Sidebar />
       <main className="min-w-0 flex-1 overflow-y-auto">
         <Routes>
