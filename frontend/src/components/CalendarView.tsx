@@ -32,6 +32,13 @@ export function CalendarView({ bookings, loading, today, selectedId, onSelect }:
     [bookings],
   )
 
+  const focusDate = useMemo(() => {
+    const upcoming = (bookings ?? []).filter((b) => !b.is_past).sort((a, b) => a.session_date.localeCompare(b.session_date))
+    if (upcoming[0]) return upcoming[0].session_date
+    const latest = [...(bookings ?? [])].sort((a, b) => b.session_date.localeCompare(a.session_date))[0]
+    return latest?.session_date ?? today ?? undefined
+  }, [bookings, today])
+
   if (loading && !bookings) {
     return (
       <Card className="p-6">
@@ -70,7 +77,7 @@ export function CalendarView({ bookings, loading, today, selectedId, onSelect }:
       <FullCalendar
         plugins={[timeGridPlugin, interactionPlugin]}
         initialView="timeGridWeek"
-        initialDate={today ?? undefined}
+        initialDate={focusDate}
         headerToolbar={{ left: 'title', right: 'today prev,next' }}
         weekends={false}
         allDaySlot={false}

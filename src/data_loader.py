@@ -6,9 +6,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Data directory
 DATA_DIR = BASE_DIR / "data"
+EXCEL_PATH = DATA_DIR / "Candidate-coach sample data_v2.0.xlsx"
 
 def load_data():
-    """Load all Tempo POC Datasets"""
+    """Load all Tempo POC datasets.
+
+    Prefers the Candidate-coach Excel workbook when it is present so the
+    coach UI stays aligned with that source file.
+    """
+
+    if EXCEL_PATH.exists():
+        from excel_import import data_from_excel
+
+        return data_from_excel(EXCEL_PATH)
 
     coaches = pd.read_csv(DATA_DIR/"coaches.csv")
     candidates = pd.read_csv(DATA_DIR/"candidates.csv")

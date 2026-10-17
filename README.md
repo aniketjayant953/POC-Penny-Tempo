@@ -21,10 +21,11 @@ npm run dev
 Open http://localhost:5173 (API on http://localhost:8000, docs at /docs).
 Optional: set `VITE_API_URL` to point the frontend at a different API URL.
 
-Demo deep link: `http://localhost:5173/coach?coach=CH004&booking=BK0149`
+Coach data comes from `data/Candidate-coach sample data_v2.0.xlsx`.
 
 ## Structure
 
 - `src/` existing business logic (unchanged)
 - `backend/main.py` thin REST layer; all data access via `src/data_loader.load_data()`
 - `frontend/` Vite + React + Tailwind + FullCalendar + Recharts
+- `data/Candidate-coach sample data_v2.0.xlsx` source workbook for coaches, meetings, notes, and activities

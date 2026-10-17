@@ -10,27 +10,31 @@ import { useAsync } from '../lib/useAsync'
 import { api } from '../services/api'
 import type { Booking } from '../types'
 
-const DEFAULT_COACH = 'CH001'
-
 export default function CoachPage() {
-  const [coachId, setCoachId] = useState<string>(DEFAULT_COACH)
+  const [coachId, setCoachId] = useState<string>('')
   const [selected, setSelected] = useState<Booking | null>(null)
   const closeModal = useCallback(() => setSelected(null), [])
 
   const coaches = useAsync(() => api.coaches(), 'coaches')
-  const bookings = useAsync(() => api.upcomingBookings(coachId), `bookings:${coachId}`)
+  const bookings = useAsync(() => api.upcomingBookings(coachId || undefined), `bookings:${coachId}`)
 
   useEffect(() => {
     setSelected(null)
   }, [coachId])
 
-  // Optional deep link for demos: /coach?coach=CH001&booking=BK0153
+  // Optional deep link for demos: /coach?coach=<id>&booking=<id>
   const [params] = useSearchParams()
   const deepCoach = params.get('coach')
   const deepBooking = params.get('booking')
   useEffect(() => {
     if (deepCoach) setCoachId(deepCoach)
   }, [deepCoach])
+  useEffect(() => {
+    if (deepCoach || !coaches.data?.length) return
+    if (!coachId || !coaches.data.some((c) => c.coach_id === coachId)) {
+      setCoachId(coaches.data[0].coach_id)
+    }
+  }, [coaches.data, deepCoach, coachId])
   useEffect(() => {
     const match = bookings.data?.events.find((e) => e.booking_id === deepBooking)
     if (match) setSelected(match)
@@ -64,43 +68,50 @@ export default function CoachPage() {
         actions={coachSelect}
       />
       <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 p-8">
-        {bookings.error ? (
+        {coaches.error || bookings.error ? (
           <Card>
             <ErrorState
-              title={bookings.error.unreachable ? 'Tempo backend is unavailable.' : "We couldn't load upcoming sessions."}
+              title={
+                (coaches.error ?? bookings.error)?.unreachable
+                  ? 'Tempo backend is unavailable.'
+                  : "We couldn't load upcoming sessions."
+              }
               description="Check that the Tempo API is running, then try again."
-              onRetry={bookings.reload}
+              onRetry={() => {
+                coaches.reload()
+                bookings.reload()
+              }}
             />
           </Card>
         ) : (
           <>
             <section className="grid gap-4 md:grid-cols-3">
               <KpiCard
-                label="Upcoming Sessions"
+                label="Booked Sessions"
                 icon={CalendarClock}
                 value={kpis?.upcoming_sessions}
-                hint="Booked sessions from today onwards"
-                loading={bookings.loading}
+                hint="Booked 1:1 sessions on this coach calendar"
+                loading={bookings.loading || coaches.loading}
               />
               <KpiCard
                 label="Today's Sessions"
                 icon={CalendarCheck}
                 value={kpis?.todays_sessions}
                 hint="Scheduled for today"
-                loading={bookings.loading}
+                loading={bookings.loading || coaches.loading}
               />
               <KpiCard
                 label="Preparation Ready"
                 icon={Sparkles}
                 value={kpis?.preparation_ready}
-                hint="Sessions Tempo can prepare you for"
-                loading={bookings.loading}
+                hint="Sessions Tempo can prepare from notes and activities"
+                loading={bookings.loading || coaches.loading}
               />
             </section>
 
             <CalendarView
               bookings={bookings.data?.events ?? null}
-              loading={bookings.loading}
+              loading={bookings.loading || coaches.loading}
               today={bookings.data?.today ?? null}
               selectedId={selected?.booking_id ?? null}
               onSelect={setSelected}

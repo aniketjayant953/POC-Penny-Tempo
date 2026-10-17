@@ -5,6 +5,7 @@ export const PROGRAMME_STYLES: Record<string, { bg: string; border: string; text
   'Executive Outplacement': { bg: '#eef2ff', border: '#6366f1', text: '#312e81', sub: '#4f46e5' },
   'Professional Outplacement': { bg: '#ecfdf5', border: '#10b981', text: '#064e3b', sub: '#047857' },
   'Career Transition Essentials': { bg: '#fff7ed', border: '#f59e0b', text: '#7c2d12', sub: '#b45309' },
+  'Career Options and Planning': { bg: '#eef2ff', border: '#6366f1', text: '#312e81', sub: '#4f46e5' },
 }
 
 const FALLBACK = { bg: '#f1f5f9', border: '#94a3b8', text: '#1e293b', sub: '#475569' }

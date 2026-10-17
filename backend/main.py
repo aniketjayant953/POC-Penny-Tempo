@@ -37,10 +37,8 @@ app = FastAPI(title="Tempo POC API", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -122,7 +120,7 @@ def _resolve_session(data: dict, candidate_id: str, booking_id: Optional[str]) -
 # --------------------------------------------------------------------------- #
 @app.get("/api/health")
 def health() -> dict[str, Any]:
-    return {"status": "ok", "data_source": "csv", "today": date.today().isoformat()}
+    return {"status": "ok", "data_source": "excel", "today": date.today().isoformat()}
 
 
 @app.get("/api/coaches")
@@ -188,12 +186,12 @@ def upcoming_bookings(coach_id: Optional[str] = None) -> dict[str, Any]:
             }
         )
 
-    upcoming_events = [e for e in events if not e["is_past"]]
     kpis = {
-        "upcoming_sessions": len(upcoming_events),
+        # Count every booked 1:1 on the calendar, including recent past
+        # meetings from the Excel sample (today may already have passed).
+        "upcoming_sessions": len(events),
         "todays_sessions": sum(1 for e in events if e["is_today"]),
-        # Preparation is generated on demand for every upcoming session.
-        "preparation_ready": len(upcoming_events),
+        "preparation_ready": len(events),
     }
     return {"today": today.date().isoformat(), "events": events, "kpis": kpis}
 

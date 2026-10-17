@@ -1,11 +1,2 @@
 coach_id,coach_name,working_hours_per_week,working_days,timezone
-CH001,Amanda Reeves,37,Mon;Tue;Wed;Thu;Fri,Europe/London
-CH002,Daniel Okafor,37,Mon;Tue;Wed;Thu;Fri,Europe/London
-CH003,Priya Nair,37,Mon;Tue;Wed;Thu;Fri,Asia/Kolkata
-CH004,Marcus Webb,30,Mon;Tue;Wed;Thu,America/New_York
-CH005,Elena Rossi,22,Tue;Wed;Thu,Europe/Rome
-CH006,James Carter,37,Mon;Tue;Wed;Thu;Fri,America/Chicago
-CH007,Sofia Lindqvist,22,Mon;Wed;Fri,Europe/Stockholm
-CH008,Rahul Mehta,37,Mon;Tue;Wed;Thu;Fri,Asia/Kolkata
-CH009,Hannah Cole,30,Mon;Tue;Wed;Thu,Australia/Sydney
-CH010,Tomasz Kowalski,37,Mon;Tue;Wed;Thu;Fri,Europe/Warsaw
+9888B675-F92A-4AC0-A015-95F3ACD4B738,abc@right.com,37,Mon;Tue;Wed;Thu;Fri,Europe/London
