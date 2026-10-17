@@ -23,6 +23,9 @@ def _norm_id(value: object) -> str:
 
 _TITLE_LABELS = {
     "careeroptionsandplanning": "Career Options and Planning",
+    "interviewpreparation": "Interview Preparation",
+    "linkedinprofile": "LinkedIn Profile",
+    "cvandapplications": "CV and Applications",
 }
 
 
@@ -90,6 +93,17 @@ def _name_from_notes(notes: pd.Series) -> str:
     return ""
 
 
+def _name_from_email(email: object) -> str:
+    text = str(email or "").strip()
+    if not text or "@" not in text:
+        return ""
+    local = text.split("@")[0]
+    parts = [p for p in re.split(r"[._-]+", local) if p]
+    if len(parts) >= 2:
+        return " ".join(p.capitalize() for p in parts)
+    return text
+
+
 def _activity_status(row: pd.Series) -> str:
     if int(row.get("IsAttended") or 0) == 1:
         return "attended"
@@ -117,41 +131,64 @@ def data_from_excel(path: Path) -> dict[str, pd.DataFrame]:
     if meetings.empty:
         raise ValueError(f"No valid coach meetings found in {path.name}")
 
-    coach_id = str(meetings.iloc[0]["CoachId"]).strip()
-    candidate_id = str(meetings.iloc[0]["CandidateId"]).strip()
-    coach_email = str(meetings.iloc[0].get("CoachEmailAddress") or "").strip()
-    candidate_email = str(meetings.iloc[0].get("CandidateEmailAddress") or "").strip()
-    programme = _humanize(meetings.iloc[0].get("Title")) or "Career Options and Planning"
-
     notes_raw = notes_raw.copy()
     notes_raw["CandidateId"] = notes_raw["CandidateId"].map(_norm_id)
-    candidate_name = _name_from_notes(notes_raw["Notes"]) or (
-        candidate_email.split("@")[0] if candidate_email else "Candidate"
-    )
-    coach_name = coach_email or "Coach"
 
-    coaches = pd.DataFrame(
-        [
+    coach_rows = []
+    seen_coaches: set[str] = set()
+    for row in meetings.to_dict("records"):
+        coach_id = str(row.get("CoachId") or "").strip()
+        if not coach_id or coach_id in seen_coaches:
+            continue
+        seen_coaches.add(coach_id)
+        email = str(row.get("CoachEmailAddress") or "").strip()
+        coach_rows.append(
             {
                 "coach_id": coach_id,
-                "coach_name": coach_name,
+                "coach_name": _name_from_email(email) or email or "Coach",
                 "working_hours_per_week": 37,
                 "working_days": "Mon;Tue;Wed;Thu;Fri",
                 "timezone": "Europe/London",
             }
-        ]
+        )
+    coaches = pd.DataFrame(coach_rows)
+
+    notes_by_candidate: dict[str, list[str]] = {}
+    for row in notes_raw.to_dict("records"):
+        cid = _norm_id(row.get("CandidateId"))
+        if cid:
+            notes_by_candidate.setdefault(cid, []).append(str(row.get("Notes") or ""))
+
+    latest_meeting = (
+        meetings.sort_values("start")
+        .groupby("CandidateId", as_index=False)
+        .tail(1)
+        .set_index("CandidateId")
     )
-    candidates = pd.DataFrame(
-        [
+
+    candidate_rows = []
+    seen_candidates: set[str] = set()
+    for row in meetings.to_dict("records"):
+        candidate_id = str(row.get("CandidateId") or "").strip()
+        if not candidate_id or candidate_id in seen_candidates:
+            continue
+        seen_candidates.add(candidate_id)
+        email = str(row.get("CandidateEmailAddress") or "").strip()
+        latest = latest_meeting.loc[candidate_id] if candidate_id in latest_meeting.index else row
+        if isinstance(latest, pd.DataFrame):
+            latest = latest.iloc[-1]
+        programme = _humanize(latest.get("Title")) or "Career Options and Planning"
+        note_name = _name_from_notes(pd.Series(notes_by_candidate.get(candidate_id, [])))
+        candidate_rows.append(
             {
                 "candidate_id": candidate_id,
-                "candidate_name": candidate_name,
+                "candidate_name": note_name or _name_from_email(email) or "Candidate",
                 "programme": programme,
                 "status": "Active",
-                "assigned_coach_id": coach_id,
+                "assigned_coach_id": str(row.get("CoachId") or "").strip(),
             }
-        ]
-    )
+        )
+    candidates = pd.DataFrame(candidate_rows)
 
     booking_rows = []
     for row in meetings.to_dict("records"):
@@ -182,21 +219,25 @@ def data_from_excel(path: Path) -> dict[str, pd.DataFrame]:
     bookings = pd.DataFrame(booking_rows)
 
     note_rows = []
-    bookings_by_date = {
-        r["session_date"]: r["booking_id"] for r in booking_rows if r.get("session_date")
+    coach_by_candidate = dict(zip(candidates["candidate_id"], candidates["assigned_coach_id"]))
+    bookings_by_key = {
+        (r["candidate_id"], r["session_date"]): r["booking_id"]
+        for r in booking_rows
+        if r.get("session_date")
     }
     for row in notes_raw.to_dict("records"):
         when = _parse_dt(row.get("ActivityDate"))
         if pd.isna(when):
             continue
         date_key = _iso_date(when)
+        candidate_id = _norm_id(row.get("CandidateId"))
         note_rows.append(
             {
                 "meeting_id": str(row.get("Id")).strip(),
-                "coach_id": coach_id,
-                "candidate_id": _norm_id(row.get("CandidateId")) or candidate_id,
+                "coach_id": coach_by_candidate.get(candidate_id, ""),
+                "candidate_id": candidate_id,
                 "meeting_date": date_key,
-                "booking_id": bookings_by_date.get(date_key, ""),
+                "booking_id": bookings_by_key.get((candidate_id, date_key), ""),
                 "notes": str(row.get("Notes") or "").strip(),
                 "agreed_actions": "",
             }
@@ -205,6 +246,9 @@ def data_from_excel(path: Path) -> dict[str, pd.DataFrame]:
 
     activity_rows = []
     for idx, row in courses_raw.iterrows():
+        candidate_id = _norm_id(row.get("CandidateId"))
+        if not candidate_id:
+            continue
         scheduled = _parse_dt(row.get("EventDate"))
         if pd.isna(scheduled):
             scheduled = _parse_dt(row.get("StartTime"))
@@ -222,7 +266,7 @@ def data_from_excel(path: Path) -> dict[str, pd.DataFrame]:
         activity_rows.append(
             {
                 "activity_id": f"ACT{idx + 1:04d}",
-                "candidate_id": _norm_id(row.get("CandidateId")) or candidate_id,
+                "candidate_id": _norm_id(row.get("CandidateId")),
                 "activity_name": str(row.get("EventName") or "").strip(),
                 "activity_type": activity_type,
                 "scheduled_date": _iso_date(scheduled),
