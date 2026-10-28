@@ -15,7 +15,7 @@ export default function CoachPage() {
   const [selected, setSelected] = useState<Booking | null>(null)
   const closeModal = useCallback(() => setSelected(null), [])
 
-  const coaches = useAsync(() => api.coaches(), 'coaches')
+  const coaches = useAsync(() => api.coaches({ has_sessions: true }), 'coaches')
   const bookings = useAsync(() => api.upcomingBookings(coachId || undefined), `bookings:${coachId}`)
 
   useEffect(() => {

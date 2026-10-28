@@ -14,12 +14,19 @@ interface Props {
   average: number | null
 }
 
+const CHART_LIMIT = 25
+
 export function UtilizationChart({ rows, average }: Props) {
-  const data = [...rows].sort((a, b) => b.utilization_pct - a.utilization_pct)
+  const ranked = [...rows].sort((a, b) => b.utilization_pct - a.utilization_pct)
+  const data = ranked.slice(0, CHART_LIMIT)
   const max = Math.max(...data.map((d) => d.utilization_pct), average ?? 0, 1)
+  const subtitle =
+    ranked.length > CHART_LIMIT
+      ? `Top ${CHART_LIMIT} of ${ranked.length} coaches · eligible 1:1 hours ÷ available hours`
+      : 'Eligible 1:1 hours ÷ available hours (P3)'
 
   return (
-    <SectionCard title="Coach Utilization" subtitle="Eligible session hours ÷ working hours" icon={BarChart3}>
+    <SectionCard title="Coach Utilization" subtitle={subtitle} icon={BarChart3}>
       {data.length === 0 ? (
         <EmptyState compact icon={BarChart3} title="No utilization data" />
       ) : (

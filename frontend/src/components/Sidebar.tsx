@@ -54,7 +54,7 @@ export function Sidebar() {
         <div className="mt-auto p-4">
           <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-[11px] text-slate-400">
             <Database size={13} className="shrink-0 text-indigo-300" />
-            Live demo · sample data
+            P3 coach utilisation data
           </div>
         </div>
       </aside>

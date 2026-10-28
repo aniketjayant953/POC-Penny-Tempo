@@ -1,5 +1,5 @@
 import { BarChart3, Clock, Gauge, Users, XCircle } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CoachUtilizationTable } from '../components/CoachUtilizationTable'
 import { KpiCard } from '../components/KpiCard'
 import { ManagerInsightCard } from '../components/ManagerInsightCard'
@@ -16,31 +16,65 @@ const selectCls =
   'tempo-select rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100'
 
 export default function ManagerPage() {
+  const [ready, setReady] = useState(false)
+  const [region, setRegion] = useState('')
   const [coachId, setCoachId] = useState('')
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
+
+  const meta = useAsync(() => api.utilizationMeta(), 'util-meta')
+
+  useEffect(() => {
+    if (!meta.data || ready) return
+    setRegion(meta.data.default_region)
+    setStart(meta.data.default_start)
+    setEnd(meta.data.default_end)
+    setReady(true)
+  }, [meta.data, ready])
 
   const filters: UtilizationFilters = {
     coach_id: coachId || undefined,
     start: start || undefined,
     end: end || undefined,
+    region: region || undefined,
   }
   const key = JSON.stringify(filters)
 
-  const coaches = useAsync(() => api.coaches(), 'coaches')
-  const util = useAsync(() => api.utilization(filters), `util:${key}`)
-  const summary = useAsync(() => api.utilizationSummary(filters), `summary:${key}`)
-  // Unfiltered list of weeks for the date-range selectors.
-  const allWeeks = useAsync(() => api.utilization({}), 'weeks')
+  const coaches = useAsync(() => api.coaches({ region: region || undefined }), `coaches:${region}`)
+  const util = useAsync(
+    () => (ready ? api.utilization(filters) : Promise.resolve(null)),
+    `util:${ready}:${key}`,
+  )
+  const summary = useAsync(
+    () => (ready ? api.utilizationSummary(filters) : Promise.resolve(null)),
+    `summary:${ready}:${key}`,
+  )
 
-  const weeks = allWeeks.data?.weeks ?? []
-  const error = util.error ?? summary.error
-  const loading = util.loading || summary.loading
+  const weeks = meta.data?.weeks ?? []
+  const regions = meta.data?.regions ?? []
+  const error = meta.error ?? util.error ?? summary.error
+  const loading = !ready || meta.loading || util.loading || summary.loading
   const kpis = summary.data?.kpis
   const hasData = summary.data?.has_data ?? false
 
   const filtersUi = (
     <div className="flex flex-wrap items-center gap-2">
+      <select
+        className={selectCls}
+        value={region}
+        aria-label="Region"
+        onChange={(e) => {
+          setRegion(e.target.value)
+          setCoachId('')
+        }}
+      >
+        <option value="">All regions</option>
+        {regions.map((r) => (
+          <option key={r} value={r}>
+            {r}
+          </option>
+        ))}
+      </select>
       <select className={selectCls} value={coachId} onChange={(e) => setCoachId(e.target.value)} aria-label="Coach">
         <option value="">All coaches</option>
         {(coaches.data ?? []).map((c) => (
@@ -81,12 +115,13 @@ export default function ManagerPage() {
           </option>
         ))}
       </select>
-      {(coachId || start || end) && (
+      {(coachId || region !== (meta.data?.default_region ?? '') || start !== (meta.data?.default_start ?? '') || end !== (meta.data?.default_end ?? '')) && (
         <button
           onClick={() => {
             setCoachId('')
-            setStart('')
-            setEnd('')
+            setRegion(meta.data?.default_region ?? '')
+            setStart(meta.data?.default_start ?? '')
+            setEnd(meta.data?.default_end ?? '')
           }}
           className="px-2 text-xs font-medium text-indigo-600 hover:text-indigo-800"
         >
@@ -98,7 +133,11 @@ export default function ManagerPage() {
 
   return (
     <>
-      <TopHeader title="Manager Intelligence" subtitle="Coach utilization and capacity overview" actions={filtersUi} />
+      <TopHeader
+        title="Manager Intelligence"
+        subtitle="P3 coach utilisation — eligible 1:1 hours ÷ available hours"
+        actions={filtersUi}
+      />
       <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 p-5 md:p-8">
         {error ? (
           <Card>

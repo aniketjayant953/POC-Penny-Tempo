@@ -9,8 +9,8 @@ def calculate_weekly_utilization(coaches, bookings):
     coaches = coaches.copy()
     bookings = bookings.copy()
 
-    # Convert dates
-    bookings["session_date"] = pd.to_datetime(bookings["session_date"])
+    # Convert dates to midnight so week grouping is by calendar week, not timestamp.
+    bookings["session_date"] = pd.to_datetime(bookings["session_date"]).dt.normalize()
 
     # Convert duration to hours
     bookings["duration_hours"] = bookings["duration_minutes"] / 60 
@@ -18,8 +18,22 @@ def calculate_weekly_utilization(coaches, bookings):
     # Exclude cancelled sessions)
     eligible_bookings = bookings[bookings["status"].str.lower().isin(["completed", "booked"])].copy()
 
-    # Get week starting Monday
-    eligible_bookings["week_start"] = (eligible_bookings["session_date"] - pd.to_timedelta(eligible_bookings["session_date"].dt.weekday, unit="D"))
+    if eligible_bookings.empty:
+        return pd.DataFrame(
+            columns=[
+                "coach_id",
+                "week_start",
+                "working_hours_per_week",
+                "booked_coaching_hours",
+                "utilization_percentage",
+            ]
+        )
+
+    # Get week starting Monday (date only)
+    eligible_bookings["week_start"] = (
+        eligible_bookings["session_date"]
+        - pd.to_timedelta(eligible_bookings["session_date"].dt.weekday, unit="D")
+    ).dt.normalize()
 
     # Aggregate coaching hours by coach and week
     weekly_booked = (eligible_bookings.groupby(["coach_id", "week_start"], as_index=False)["duration_hours"].sum().rename(columns={"duration_hours": "booked_coaching_hours"}))
@@ -38,7 +52,8 @@ def calculate_weekly_utilization(coaches, bookings):
     result["booked_coaching_hours"] = (result["booked_coaching_hours"].fillna(0)) 
 
     # Calculate utilization
-    result["utilization_percentage"] = result["booked_coaching_hours"]/ result["working_hours_per_week"] * 100
+    working = result["working_hours_per_week"].replace(0, pd.NA)
+    result["utilization_percentage"] = (result["booked_coaching_hours"] / working * 100).fillna(0)
 
     return result.sort_values(["week_start", "coach_id"])
 

@@ -18,7 +18,7 @@ export function CoachUtilizationTable({ rows, thresholds }: Props) {
       title="Coach Breakdown"
       subtitle={
         thresholds
-          ? `POC thresholds: High ≥ ${thresholds.high}% · Moderate ≥ ${thresholds.moderate}% · Low < ${thresholds.moderate}%`
+          ? `Bands: High ≥ ${thresholds.high}% · Moderate ≥ ${thresholds.moderate}% · Low < ${thresholds.moderate}%`
           : undefined
       }
       icon={Table2}
@@ -27,10 +27,11 @@ export function CoachUtilizationTable({ rows, thresholds }: Props) {
         <EmptyState compact icon={Table2} title="No coaches to display" />
       ) : (
         <div className="-mx-2 overflow-x-auto">
-          <table className="w-full min-w-[820px] text-sm">
+          <table className="w-full min-w-[920px] text-sm">
             <thead className="border-b border-slate-200 bg-slate-50/70">
               <tr>
                 <th className={th}>Coach</th>
+                <th className={th}>Region</th>
                 <th className={thR}>Working Hrs / Wk</th>
                 <th className={thR}>Booked / Eligible Hrs</th>
                 <th className={th}>Utilization</th>
@@ -50,6 +51,7 @@ export function CoachUtilizationTable({ rows, thresholds }: Props) {
                       <p className="font-medium text-slate-900">{r.coach_name}</p>
                     </div>
                   </td>
+                  <td className="px-4 py-3 text-slate-600">{r.region || '—'}</td>
                   <td className="px-4 py-3 text-right tabular-nums text-slate-600">{r.working_hours_per_week}</td>
                   <td className="px-4 py-3 text-right tabular-nums text-slate-600">
                     {r.eligible_hours.toFixed(2)}{' '}

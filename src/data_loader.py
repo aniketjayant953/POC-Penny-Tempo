@@ -1,4 +1,6 @@
 from pathlib import Path
+from typing import Optional
+
 import pandas as pd
 
 # Project root directory
@@ -6,25 +8,40 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Data directory
 DATA_DIR = BASE_DIR / "data"
+P3_PATH = DATA_DIR / "Coach_RelatedDetails_P3.xlsx"
 EXCEL_PATH = DATA_DIR / "Candidate-coach sample data_v2.0.xlsx"
 
-def load_data():
+_CACHE: Optional[dict] = None
+
+
+def load_data(refresh: bool = False):
     """Load all Tempo POC datasets.
 
-    Prefers MySQL (`aicoaching`) when tables are populated, then the Excel
-    workbook, then CSV files.
+    Prefers MySQL (`aicoaching`) when tables are populated, then the P3
+    workbook, then the older sample workbook, then CSV files.
     """
+    global _CACHE
+    if _CACHE is not None and not refresh:
+        return _CACHE
 
     from db import try_load_from_db
 
     db_data = try_load_from_db()
     if db_data is not None:
+        _CACHE = db_data
         return db_data
+
+    if P3_PATH.exists():
+        from p3_import import data_from_p3
+
+        _CACHE = data_from_p3(P3_PATH)
+        return _CACHE
 
     if EXCEL_PATH.exists():
         from excel_import import data_from_excel
 
-        return data_from_excel(EXCEL_PATH)
+        _CACHE = data_from_excel(EXCEL_PATH)
+        return _CACHE
 
     coaches = pd.read_csv(DATA_DIR/"coaches.csv")
     candidates = pd.read_csv(DATA_DIR/"candidates.csv")
@@ -32,13 +49,14 @@ def load_data():
     activities = pd.read_csv(DATA_DIR/"candidate_activities.csv") 
     meeting_notes = pd.read_csv(DATA_DIR/"previous_coach_meeting_notes.csv") 
 
-    return {
+    _CACHE = {
         "coaches": coaches,
         "candidates": candidates,
         "bookings": bookings,
         "activities": activities,
         "meeting_notes": meeting_notes,
     }
+    return _CACHE
 
 def validate_data(data):
     """Perform basic validation on the data""" 

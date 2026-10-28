@@ -5,6 +5,7 @@ import type {
   Coach,
   UpcomingBookings,
   UtilizationFilters,
+  UtilizationMeta,
   UtilizationResponse,
   UtilizationSummary,
 } from '../types'
@@ -57,7 +58,8 @@ const briefCache = new Map<string, Promise<CandidateBrief>>()
 
 export const api = {
   health: () => request<{ status: string; today: string }>('/api/health'),
-  coaches: () => request<Coach[]>('/api/coaches'),
+  coaches: (opts?: { region?: string; has_sessions?: boolean }) =>
+    request<Coach[]>(`/api/coaches${qs({ region: opts?.region, has_sessions: opts?.has_sessions || undefined })}`),
   candidates: (coachId?: string) => request<Candidate[]>(`/api/candidates${qs({ coach_id: coachId })}`),
   candidate: (id: string) => request<Candidate>(`/api/candidates/${id}`),
   upcomingBookings: (coachId?: string) =>
@@ -94,4 +96,5 @@ export const api = {
   utilization: (f: UtilizationFilters) => request<UtilizationResponse>(`/api/utilization${qs({ ...f })}`),
   utilizationSummary: (f: UtilizationFilters) =>
     request<UtilizationSummary>(`/api/utilization/summary${qs({ ...f })}`),
+  utilizationMeta: () => request<UtilizationMeta>('/api/utilization/meta'),
 }

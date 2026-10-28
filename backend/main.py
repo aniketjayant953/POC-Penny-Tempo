@@ -43,9 +43,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# POC visualisation thresholds (NOT business rules).
-# Calibrated to the dummy data range (only 1:1 session hours vs. full working hours).
-UTILIZATION_THRESHOLDS = {"high": 9.0, "moderate": 6.0}
+# Visualisation bands for 1:1 hours vs contracted AvailableHours (P3).
+# Not a client SLA — most coaches sit well below 10% on this extract.
+UTILIZATION_THRESHOLDS = {"high": 5.0, "moderate": 2.5}
 
 # In-memory cache so the LLM is only called once per meeting unless refreshed.
 _brief_cache: dict[str, dict[str, Any]] = {}
@@ -127,9 +127,21 @@ def health() -> dict[str, Any]:
 
 
 @app.get("/api/coaches")
-def list_coaches() -> list[dict[str, Any]]:
+def list_coaches(
+    region: Optional[str] = None,
+    has_sessions: bool = Query(False),
+) -> list[dict[str, Any]]:
     data = load_data()
-    return _records(data["coaches"])
+    df = data["coaches"].copy()
+    if "region" not in df.columns:
+        df["region"] = "Unknown"
+    if region:
+        df = df[df["region"] == region]
+    if has_sessions:
+        ids = set(data["bookings"]["coach_id"].astype(str))
+        df = df[df["coach_id"].astype(str).isin(ids)]
+    df = df.sort_values("coach_name")
+    return _records(df)
 
 
 @app.get("/api/candidates")
@@ -161,6 +173,13 @@ def upcoming_bookings(coach_id: Optional[str] = None) -> dict[str, Any]:
     upcoming = get_upcoming_sessions(data["bookings"])
     if coach_id:
         upcoming = upcoming[upcoming["coach_id"] == coach_id]
+    today_norm = _today().normalize()
+    dates = pd.to_datetime(upcoming["session_date"]).dt.normalize()
+    window = upcoming[(dates >= today_norm - pd.Timedelta(weeks=4)) & (dates <= today_norm + pd.Timedelta(weeks=8))]
+    if window.empty and not upcoming.empty:
+        last = dates.max()
+        window = upcoming[dates >= last - pd.Timedelta(weeks=8)]
+    upcoming = window
 
     coach_names = _coach_name_map(data)
     cands = data["candidates"].set_index("candidate_id")
@@ -399,29 +418,34 @@ def _level(pct: float) -> str:
 
 
 def _utilization_view(
-    coach_id: Optional[str], start: Optional[str], end: Optional[str]
+    coach_id: Optional[str],
+    start: Optional[str],
+    end: Optional[str],
+    region: Optional[str] = None,
 ) -> dict[str, Any]:
     data = load_data()
-    coaches = data["coaches"]
+    coaches = data["coaches"].copy()
+    if "region" not in coaches.columns:
+        coaches["region"] = "Unknown"
     bookings = data["bookings"].copy()
-    bookings["session_date"] = pd.to_datetime(bookings["session_date"])
+    bookings["session_date"] = pd.to_datetime(bookings["session_date"]).dt.normalize()
 
-    weekly = calculate_weekly_utilization(coaches, data["bookings"])
-    all_weeks = sorted(pd.to_datetime(weekly["week_start"].unique()))
-    today = _today()
-    current_week = today - pd.Timedelta(days=today.weekday())
-
+    if region:
+        coaches = coaches[coaches["region"] == region]
+        bookings = bookings[bookings["coach_id"].isin(set(coaches["coach_id"]))]
+    if coach_id:
+        coaches = coaches[coaches["coach_id"] == coach_id]
+        bookings = bookings[bookings["coach_id"] == coach_id]
     if start:
-        weekly = weekly[weekly["week_start"] >= pd.to_datetime(start)]
         bookings = bookings[bookings["session_date"] >= pd.to_datetime(start)]
     if end:
         end_ts = pd.to_datetime(end)
-        weekly = weekly[weekly["week_start"] <= end_ts]
         bookings = bookings[bookings["session_date"] < end_ts + pd.Timedelta(days=7)]
-    if coach_id:
-        weekly = weekly[weekly["coach_id"] == coach_id]
-        bookings = bookings[bookings["coach_id"] == coach_id]
-        coaches = coaches[coaches["coach_id"] == coach_id]
+
+    weekly = calculate_weekly_utilization(coaches, bookings)
+    all_weeks = sorted(pd.to_datetime(weekly["week_start"].unique())) if not weekly.empty else []
+    today = _today()
+    current_week = today - pd.Timedelta(days=int(today.weekday()))
 
     status = bookings["status"].str.lower()
     bookings = bookings.assign(status_l=status)
@@ -466,7 +490,8 @@ def _utilization_view(
         coach_rows.append(
             {
                 "coach_id": cid,
-                "coach_name": names[cid],
+                "coach_name": names.get(cid, cid),
+                "region": str(c.get("region") or "Unknown"),
                 "working_hours_per_week": float(c["working_hours_per_week"]),
                 "weeks": weeks_n,
                 "capacity_hours": round(capacity, 1),
@@ -490,13 +515,55 @@ def _utilization_view(
     }
 
 
+@app.get("/api/utilization/meta")
+def utilization_meta() -> dict[str, Any]:
+    data = load_data()
+    coaches = data["coaches"].copy()
+    if "region" not in coaches.columns:
+        coaches["region"] = "Unknown"
+    bookings = data["bookings"].copy()
+    bookings["session_date"] = pd.to_datetime(bookings["session_date"]).dt.normalize()
+    week = (
+        bookings["session_date"] - pd.to_timedelta(bookings["session_date"].dt.weekday, unit="D")
+    ).dt.normalize()
+    weeks = sorted({pd.Timestamp(w).date().isoformat() for w in week if not pd.isna(w)})
+    regions = sorted({str(r) for r in coaches["region"].dropna().unique() if str(r).strip()})
+
+    today = _today().normalize()
+    current_week = today - pd.Timedelta(days=int(today.weekday()))
+    default_end = current_week
+    default_start = current_week - pd.Timedelta(weeks=11)
+    if weeks:
+        last = pd.Timestamp(weeks[-1])
+        first = pd.Timestamp(weeks[0])
+        if default_end > last or default_start > last:
+            default_end = last
+            default_start = last - pd.Timedelta(weeks=11)
+        if default_start < first:
+            default_start = first
+
+    default_region = (
+        "United Kingdom & Ireland" if "United Kingdom & Ireland" in regions else (regions[0] if regions else "")
+    )
+    return {
+        "weeks": weeks,
+        "regions": regions,
+        "default_start": default_start.date().isoformat(),
+        "default_end": default_end.date().isoformat(),
+        "default_region": default_region,
+        "thresholds": UTILIZATION_THRESHOLDS,
+        "source": "P3 Coach_RelatedDetails",
+    }
+
+
 @app.get("/api/utilization")
 def utilization(
     coach_id: Optional[str] = None,
     start: Optional[str] = Query(None, description="Week start (YYYY-MM-DD), inclusive"),
     end: Optional[str] = Query(None, description="Week start (YYYY-MM-DD), inclusive"),
+    region: Optional[str] = None,
 ) -> dict[str, Any]:
-    view = _utilization_view(coach_id, start, end)
+    view = _utilization_view(coach_id, start, end, region)
     return {
         "weeks": view["all_weeks"],
         "thresholds": UTILIZATION_THRESHOLDS,
@@ -511,8 +578,9 @@ def utilization_summary(
     coach_id: Optional[str] = None,
     start: Optional[str] = None,
     end: Optional[str] = None,
+    region: Optional[str] = None,
 ) -> dict[str, Any]:
-    view = _utilization_view(coach_id, start, end)
+    view = _utilization_view(coach_id, start, end, region)
     rows = view["coach_rows"]
     bookings = view["bookings"]
 

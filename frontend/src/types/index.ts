@@ -1,6 +1,7 @@
 export interface Coach {
   coach_id: string
   coach_name: string
+  region?: string
   working_hours_per_week: number
   working_days: string
   timezone: string
@@ -118,6 +119,7 @@ export type UtilizationLevel = 'high' | 'moderate' | 'low'
 export interface CoachUtilizationRow {
   coach_id: string
   coach_name: string
+  region?: string
   working_hours_per_week: number
   weeks: number
   capacity_hours: number
@@ -175,4 +177,15 @@ export interface UtilizationFilters {
   coach_id?: string
   start?: string
   end?: string
+  region?: string
+}
+
+export interface UtilizationMeta {
+  weeks: string[]
+  regions: string[]
+  default_start: string
+  default_end: string
+  default_region: string
+  thresholds: { high: number; moderate: number }
+  source: string
 }
